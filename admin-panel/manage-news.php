@@ -3,10 +3,6 @@
 include '../class/include.php';
 include 'auth.php';
 
-$id = '';
-$id = $_GET['id'];
-
-$NEWS = new News($id);
 
 ?>
 <html lang="en">
@@ -50,7 +46,7 @@ $NEWS = new News($id);
 									<ol class="breadcrumb">
 										<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
 										<li class="breadcrumb-item" aria-current="page">Home</li>
-										<li class="breadcrumb-item active" aria-current="page"><?php echo $NEWS->title ?></li>
+										<li class="breadcrumb-item active" aria-current="page">Manage News</li>
 									</ol>
 								</nav>
 							</div>
@@ -65,6 +61,7 @@ $NEWS = new News($id);
 
 					<div class="row">
 						<?php
+						$NEWS = new News(NULL);
 						foreach ($NEWS->all() as $key => $news) {
 						?>
 							<div class="col-md-12 col-lg-4">
@@ -77,10 +74,10 @@ $NEWS = new News($id);
 									<div class="card-footer   d-flex">
 										<a href="edit-news.php?id=<?php echo $news['id'] ?>">
 											<i class="  bx bx-edit-alt edit-btn edit-btn-sty"></i>
-										</a> | 
+										</a> |
 										<a href="create-lessons.php?id=<?php echo $news['id'] ?>">
 											<i class="  bx bx-edit-alt edit-btn edit-btn-sty"></i>
-										</a> 
+										</a>
 
 									</div>
 
@@ -94,7 +91,7 @@ $NEWS = new News($id);
 			</div>
 		</div>
 		<!-- /.content-wrapper -->
-  
+
 	</div>
 	<!-- ./wrapper -->
 

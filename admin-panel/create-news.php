@@ -14,7 +14,7 @@ include 'auth.php';
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>Aswanna.edu.lk - Create Class </title>
+	<title>Aswanna.edu.lk - Create NEws </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
@@ -53,12 +53,12 @@ include 'auth.php';
 
 										<div class="form-group">
 											<label>Title:</label>
-											<input type="text" class="form-control" placeholder="Enter class title" name="title" id="title">
+											<input type="text" class="form-control" placeholder="Enter class title" name="title" id="title" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Date:</label>
-											<input type="text" class="form-control datepicker" placeholder="Enter class Date" name="date" id="date">
+											<input type="text" class="form-control datepicker" placeholder="Enter class Date" name="date" id="date" autocomplete="off">
 										</div>
 
 
@@ -69,12 +69,12 @@ include 'auth.php';
 
 										<div class="form-group">
 											<label>Short Description:</label>
-											<input type="text" class="form-control" placeholder="Enter class title" name="short_description" id="short_description">
+											<input type="text" class="form-control" placeholder="Enter class title" name="short_description" id="short_description" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control"></textarea>
+											<textarea id="description" name="description" class="form-control" autocomplete="off"></textarea>
 
 										</div>
 

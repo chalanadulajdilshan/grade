@@ -18,12 +18,12 @@ class DefaultData
     public function Grades()
     {
         return array(
-            "1" => "Grade 6",
-            "2" => "Grade 7",
-            "3" => "Grade 8",
-            "4" => "Grade 9",
-            "5" => "Grade 10",
-            "6" => "Grade 11"
+            "6" => "Grade 6",
+            "7" => "Grade 7",
+            "8" => "Grade 8",
+            "9" => "Grade 9",
+            "10" => "Grade 10",
+            "11" => "Grade 11"
         );
     }
 
