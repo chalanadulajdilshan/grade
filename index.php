@@ -145,6 +145,8 @@ include "./class/include.php"
                <hr class="w-100 bg-primary">
             </div>
          </div>
+
+
          <div class="row mt-30">
             <div class="col-12">
 
@@ -156,12 +158,10 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/01.jpg" alt="aswenna.edu.lk">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">Manegement</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>සිංහල පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
@@ -172,12 +172,10 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/02.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">Networking</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>ගණිතය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
@@ -188,95 +186,72 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/03.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">Security</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>විද්‍යාව පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
                      </div>
+
                      <div class="col-lg-3 col-md-6 col-12">
                         <div class="card">
                            <a href="#">
                               <img class="card-img-top" src="assets/images/04.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>ඉංග්‍රීසි පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
                      </div>
+
                      <div class="col-lg-3 col-md-6 col-12">
                         <div class="card">
                            <a href="#">
                               <img class="card-img-top" src="assets/images/05.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>බුද්ධ ධර්මය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
-
                      </div>
+
                      <div class="col-lg-3 col-md-6 col-12">
                         <div class="card">
                            <a href="#">
                               <img class="card-img-top" src="assets/images/06.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>සෞඛ්‍ය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
-
                      </div>
-                     <div class="col-lg-3 col-md-6 col-12">
-                        <div class="card">
-                           <a href="#">
-                              <img class="card-img-top" src="assets/images/07.jpg" alt="Card image cap">
-                           </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
-                              </div>
-                           </div>
-                        </div>
+                     
 
-                     </div>
                      <div class="col-lg-3 col-md-6 col-12">
                         <div class="card">
                            <a href="#">
                               <img class="card-img-top" src="assets/images/08.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>දෙමළ පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
@@ -288,12 +263,10 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/09.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>ඉතිහාසය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
@@ -305,12 +278,10 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/10.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>පුරවැසි අධ්‍යාපනය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
@@ -322,19 +293,31 @@ include "./class/include.php"
                               <img class="card-img-top" src="assets/images/11.jpg" alt="Card image cap">
                            </a>
 
-                           <div class="card-body">
-                              <span class="badge badge-success mb-10">Online</span>
-                              <h4 class="card-title">IT & Software</h4>
-                              <div class="d-flex justify-content-between">
-                                 <a href="#"><span class="fw-bold">Duration:</span> 6 Months</a>
-                                 <a href="#"><span class="fw-bold">Daily:</span> 2 Hours</a>
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>භූගෝල විද්‍යාව පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
                               </div>
                            </div>
                         </div>
-
                      </div>
+                     
+                     <div class="col-lg-3 col-md-6 col-12">
+                        <div class="card">
+                           <a href="#">
+                              <img class="card-img-top" src="assets/images/07.jpg" alt="Card image cap">
+                           </a>
 
-
+                           <div class="card-body" style="margin: 0px;">
+                              <h3 class="card-title" style="margin: 0px;"><b>තොරතුරු හා සන්නිවේදනය තාක්ශණය පන්තිය</b></h3>
+                              <div class="d-flex justify-content-between" style="float: right;">
+                                 <span class="badge badge-success mb-10 " style="margin: 0px;font-size:14px;">View More</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                     
                   </div>
                </div>
             </div>

@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Aswanna.edu.lk">
     <link rel="icon" href="assets/images/favicon.ico">
-    <title>EduLearn - Dashboard</title>
+    <title>Aswanna.edu.lk - News</title>
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/css/vendors_css.css">
     <!-- Style-->
@@ -17,7 +17,7 @@
 </head>
 
 <body class="theme-primary">
-    <?php include_once(dirname(__FILE__) . '/header.php'); ?>
+    <?php include_once(dirname(__FILE__) . '/header_view_pages.php'); ?>
     <!---page Title --->
     <section class="bg-img pt-150 pb-20" data-overlay="7" style="background-image: url(assets/images/front-end-img/background/bg-8.jpg);">
         <div class="container">
