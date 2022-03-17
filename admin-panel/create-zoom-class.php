@@ -6,7 +6,7 @@ include 'auth.php';
 
 $id = '';
 $id = $_GET['id'];
-$TUTION_CLASS = new TutionClass($id);
+$SUBJECTS = new Subjects($id);
 ?>
 <html lang="en">
 
@@ -52,7 +52,7 @@ $TUTION_CLASS = new TutionClass($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Create <?php echo $TUTION_CLASS->name ?> - Lessons</h4>
+									<h4 class="box-title">Create <?php echo $SUBJECTS->name ?> - Lessons</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
@@ -95,7 +95,7 @@ $TUTION_CLASS = new TutionClass($id);
 									<div class="box-footer">
 										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
 									</div>
-									<input type="hidden" name="class_id" value="<?php echo $id ?>">
+									<input type="hidden" name="subject_id" value="<?php echo $id ?>">
 									<input type="hidden" name="create">
 								</form>
 							</div>
@@ -131,8 +131,8 @@ $TUTION_CLASS = new TutionClass($id);
 												</thead>
 												<tbody>
 													<?php
-													$LESSONS = new Lessons(null);
-													foreach ($LESSONS->getLessonsByClsass($id) as $key => $lessons) {
+													$ZOOMCLASSES = new ZoomClass(null);
+													foreach ($ZOOMCLASSES->getOnlineClassBySubjectId($id) as $key => $lessons) {
 														$key++;
 													?>
 
@@ -197,7 +197,7 @@ $TUTION_CLASS = new TutionClass($id);
 	<script src="js/pages/data-table.js"></script>
 
 
-	<script src="ajax/js/add-class-lessons.js"></script>
+	<script src="ajax/js/zoom_class.js"></script>
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

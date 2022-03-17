@@ -45,7 +45,7 @@ include 'auth.php';
 						?>
 
 							<div class="col-md-4" style="margin-bottom: 30px;">
-								<a href="manage-classes.php?id=<?php echo $key ?>">
+								<a href="manage-subjects.php?id=<?php echo $key ?>">
 									<div class="card card-body card-inverse card-primary text-center">
 										<blockquote class="card-bodyquote">
 											<h1><?php echo $grade ?></h1>

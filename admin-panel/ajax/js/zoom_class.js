@@ -5,39 +5,47 @@ $(document).ready(function() {
         event.preventDefault();
         tinymce.triggerSave();
 
-        if (!$('#name').val() || $('#name').val().length === 0) {
+        if (!$('#title').val() || $('#title').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please enter your Subject Name..!",
+                text: "Please enter your Lesson Title..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#start_date').val() || $('#start_date').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your start date..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#start_time').val() || $('#start_time').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your start time..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#meeting_id').val() || $('#meeting_id').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your meeting id..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#password').val() || $('#password').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your password..!",
                 type: 'error',
                 timer: 1500,
                 showConfirmButton: false
             });
 
-        } else if (!$('#grade').val() || $('#grade').val().length === 0) {
-            swal({
-                title: "Error!",
-                text: "Please enter your Class Grade..!",
-                type: 'error',
-                timer: 1500,
-                showConfirmButton: false
-            });
-        } else if (!$('#image_name').val() || $('#image_name').val().length === 0) {
-            swal({
-                title: "Error!",
-                text: "Please enter your image name..!",
-                type: 'error',
-                timer: 1500,
-                showConfirmButton: false
-            });
-        } else if (!$('#description').val() || $('#description').val().length === 0) {
-            swal({
-                title: "Error!",
-                text: "Please enter your description..!",
-                type: 'error',
-                timer: 1500,
-                showConfirmButton: false
-            });
         } else {
 
             //start preloarder
@@ -45,7 +53,7 @@ $(document).ready(function() {
 
             var formData = new FormData($('#form-data')[0]);
             $.ajax({
-                url: "ajax/php/add-class.php",
+                url: "ajax/php/zoom_class.php",
                 type: "POST",
                 data: formData,
                 async: false,
@@ -79,32 +87,47 @@ $(document).ready(function() {
         event.preventDefault();
         tinymce.triggerSave();
 
-        if (!$('#name').val() || $('#name').val().length === 0) {
+        if (!$('#title').val() || $('#title').val().length === 0) {
             swal({
                 title: "Error!",
-                text: "Please enter your Subject Name..!",
+                text: "Please enter your Lesson Title..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#start_date').val() || $('#start_date').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your start date..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#start_time').val() || $('#start_time').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your start time..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#meeting_id').val() || $('#meeting_id').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your meeting id..!",
+                type: 'error',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else if (!$('#password').val() || $('#password').val().length === 0) {
+            swal({
+                title: "Error!",
+                text: "Please enter your password..!",
                 type: 'error',
                 timer: 1500,
                 showConfirmButton: false
             });
 
-        } else if (!$('#grade').val() || $('#grade').val().length === 0) {
-            swal({
-                title: "Error!",
-                text: "Please enter your Class Grade..!",
-                type: 'error',
-                timer: 1500,
-                showConfirmButton: false
-            });
-
-        } else if (!$('#description').val() || $('#description').val().length === 0) {
-            swal({
-                title: "Error!",
-                text: "Please enter your description..!",
-                type: 'error',
-                timer: 1500,
-                showConfirmButton: false
-            });
         } else {
 
             //start preloarder
@@ -112,7 +135,7 @@ $(document).ready(function() {
 
             var formData = new FormData($('#form-data')[0]);
             $.ajax({
-                url: "ajax/php/add-class.php",
+                url: "ajax/php/add-class-lessons.php",
                 type: "POST",
                 data: formData,
                 async: false,

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <?php
 include '../class/include.php';
-// include 'auth.php';
+//include 'auth.php';
 $STUDENT = new Student(1);
 ?>
 <html lang="en">
@@ -76,15 +76,16 @@ $STUDENT = new Student(1);
                     <div class="row fx-element-overlay">
 
                         <?php
-                        $TUTION_CLASSES = new TutionClass(NULL);
-                        foreach ($TUTION_CLASSES->getClassesByGrade($STUDENT->grade) as $key => $tutionclass) {
+                         
+                        $SUBJECTS = new Subjects(NULL);
+                        foreach ($SUBJECTS->getClassesByGrade(6) as $key => $subjects) {
                         ?>
                             <div class="col-lg-3 col-md-6 col-12">
-                                <a href="class-view.php?id=<?php echo $tutionclass['id'] ?>">
+                                <a href="class-view.php?id=<?php echo $subjects['id'] ?>">
 
                                     <div class="box">
                                         <div class="fx-card-item">
-                                            <div class="fx-card-avatar fx-overlay-1"> <img src="../upload/classes/<?php echo $tutionclass['image_name'] ?>" alt="user" class="bbrr-0 bblr-0">
+                                            <div class="fx-card-avatar fx-overlay-1"> <img src="../upload/Subjects/<?php echo $subjects['image_name'] ?>" alt="user" class="bbrr-0 bblr-0">
                                                 <div class="fx-overlay">
                                                     <ul class="fx-info">
                                                         <li><span class="btn btn-danger no-border" href="javascript:void(0);">
@@ -95,7 +96,7 @@ $STUDENT = new Student(1);
                                                 </div>
                                             </div>
                                             <div class="fx-card-content">
-                                                <h4 class="box-title mb-0"><?php echo $tutionclass['name'] ?></h4>
+                                                <h4 class="box-title mb-0"><?php echo $subjects['name'] ?></h4>
                                             </div>
                                         </div>
                                     </div>

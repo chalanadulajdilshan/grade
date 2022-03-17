@@ -14,7 +14,7 @@ include 'auth.php';
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>AswannaCollage - Create Class </title>
+	<title>AswannaCollage - Create Subjects </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
@@ -44,7 +44,7 @@ include 'auth.php';
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Create Classes</h4>
+									<h4 class="box-title">Create Subject</h4>
 								</div>
 								<!-- /.box-header -->
 								<form id="form-data">
@@ -52,11 +52,11 @@ include 'auth.php';
 
 										<div class="form-group">
 											<label>Subject name:</label>
-											<input type="text" class="form-control" placeholder="Enter class title" name="name" id="name">
+											<input type="text" class="form-control" placeholder="Enter class title" name="name" id="name" autocomplete="off">
 										</div>
 										<div class="form-group">
 											<label>Select Grade:</label>
-											<select class="form-control" name="grade" id="grade">
+											<select class="form-control" name="grade" id="grade" autocomplete="off">
 												<option value=""> -- Select Grade --</option>
 												<?php
 												$DEFULTDATA = new DefaultData();
@@ -68,12 +68,12 @@ include 'auth.php';
 										</div>
 										<div class="form-group">
 											<label>Class Image:</label>
-											<input type="file" class="form-control" id="image_name" name="image_name">
+											<input type="file" class="form-control" id="image_name" name="image_name" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control"></textarea>
+											<textarea id="description" name="description" class="form-control" autocomplete="off"></textarea>
 
 										</div>
 
@@ -102,7 +102,7 @@ include 'auth.php';
 
 	<!-- EduAdmin App -->
 	<script src="js/template.js"></script>
-	<script src="ajax/js/add-class.js"></script>
+	<script src="ajax/js/subjects.js"></script>
 	<script src="assets/sweetalert/sweetalert.min.js"></script>
 	<script src="js/jquery.preloader.min.js"></script>
 

@@ -4,14 +4,14 @@ include '../../../class/include.php';
 
 if (isset($_POST['create'])) {
 
-    $TUTTION_CLASS = new TutionClass(NULL);
+    $SUBJECTS = new Subjects(NULL);
 
-    $TUTTION_CLASS->name = ucfirst($_POST['name']);
-    $TUTTION_CLASS->grade = ucfirst($_POST['grade']);
-    $TUTTION_CLASS->description = $_POST['description'];
+    $SUBJECTS->name = ucfirst($_POST['name']);
+    $SUBJECTS->grade = ucfirst($_POST['grade']);
+    $SUBJECTS->description = $_POST['description'];
 
 
-    $dir_dest = '../../../upload/classes/';
+    $dir_dest = '../../../upload/Subjects/';
 
     $handle = new Upload($_FILES['image_name']);
     $HELP = new Helper();
@@ -33,8 +33,8 @@ if (isset($_POST['create'])) {
         }
     }
 
-    $TUTTION_CLASS->image_name = $imgName;
-    $TUTTION_CLASS->create();
+    $SUBJECTS->image_name = $imgName;
+    $SUBJECTS->create();
 
     $result = ["status" => 'success'];
     echo json_encode($result);
@@ -66,14 +66,14 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $TUTTION_CLASS = new TutionClass($_POST['id']);
+    $SUBJECTS = new TutionClass($_POST['id']);
 
-    $TUTTION_CLASS->image_name = $_POST['oldImageName'];
-    $TUTTION_CLASS->name = ucfirst($_POST['name']);
-    $TUTTION_CLASS->grade = $_POST['grade'];
-    $TUTTION_CLASS->description = $_POST['description'];
+    $SUBJECTS->image_name = $_POST['oldImageName'];
+    $SUBJECTS->name = ucfirst($_POST['name']);
+    $SUBJECTS->grade = $_POST['grade'];
+    $SUBJECTS->description = $_POST['description'];
 
-    $TUTTION_CLASS->update();
+    $SUBJECTS->update();
 
     $result = ["status" => 'success'];
     echo json_encode($result);
