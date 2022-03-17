@@ -134,7 +134,7 @@
                     </a>
                     <ul class="dropdown-menu animated flipInX">
                         <li class="user-body">
-                            <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i> Profile</a>
+                            <a class="dropdown-item" href="profile.php"><i class="ti-user text-muted mr-2"></i> Profile</a>
                             <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
                             <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
                             <div class="dropdown-divider"></div>
@@ -172,48 +172,30 @@
                             </span>
                         </a>
                     </li>
-
-
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
-                            <span>Classes</span>
+                    <li>
+                        <a href="manage-payments.php">
+                            <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Payments</span>
+                            
+                        </a>
+                    </li>
+                    <li>
+                        <a href="faq.php">
+                            <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Help Center</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu">
-                            <li><a href="create-class.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Create Classes</a></li>
-                            <li><a href="manage-grades.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Manage Classes</a></li>
-                        </ul>
                     </li>
 
-                    <li class="treeview">
-                        <a href="#">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
-                            <span>News</span>
+                    <li>
+                        <a href="time-table.php">
+                            <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Time Table</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-right pull-right"></i>
                             </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="create-news.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Create News</a></li>
-                            <li><a href="manage-news.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Manage News</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="manage-student-by-grades.php">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
-                            <span>Manage Students</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="manage-grades-by-payments.php">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
-                            <span>Manage Students Payments</span>
                         </a>
                     </li>
 

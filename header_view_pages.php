@@ -4,8 +4,7 @@
     <a href="#" class="waves-effect waves-light btn btn-social-icon btn-linkedin"><i class="fa fa-linkedin"></i></a>
     <a href="#" class="waves-effect waves-light btn btn-social-icon btn-youtube"><i class="fa fa-youtube-play"></i></a>
 </div>
-
-<header class="top-bar text-dark">
+<header class="top-bar text-white">
     <div class="topbar">
         <div class="container">
             <div class="row justify-content-end">
@@ -23,14 +22,14 @@
                         <ul class="list-inline d-lg-flex justify-content-end">
 
                             <li class="me-10 ps-10"><a href="student/register.php"><i class="fa fa-user d-md-inline-block d-none"></i> Register</a></li>
-                            <li class="me-10 ps-10"><a href="student/login.php#"><i class="fa fa-sign-in d-md-inline-block d-none"></i> Login</a></li>
+                            <li class="me-10 ps-10"><a href="student/login.php"><i class="fa fa-sign-in d-md-inline-block d-none"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <nav hidden class="nav-dark nav-transparent">
+    <nav hidden class="nav-white nav-transparent">
         <div class="nav-header">
             <a href="index.php" class="brand">
                 <img src="assets/images/logo-light-text5.png" alt="" />

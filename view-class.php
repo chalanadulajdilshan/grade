@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Aswanna.edu.lk">
     <link rel="icon" href="assets/images/favicon.ico">
-    <title>EduLearn - Dashboard</title>
+    <title>Aswanna.edu.lk - Class View</title>
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/css/vendors_css.css">
     <!-- Style-->
