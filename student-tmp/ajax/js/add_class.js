@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    //Update Accommodation
-    $('#create').click(function (event) {
+    //Update class
+    $('#create').click(function(event) {
         event.preventDefault();
         tinymce.triggerSave();
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
                 type: 'error',
                 timer: 1500,
                 showConfirmButton: false
-            }); 
+            });
         } else {
 
             //start preloarder
@@ -73,7 +73,7 @@ $(document).ready(function () {
                 data: formData,
                 async: false,
                 dataType: 'json',
-                success: function (result) {
+                success: function(result) {
 
                     //remove preloarder
                     $('.someBlock').preloader('remove');
@@ -84,8 +84,8 @@ $(document).ready(function () {
                         type: 'success',
                         timer: 2000,
                         showConfirmButton: false
-                    }, function () {
-                        setTimeout(function () {
+                    }, function() {
+                        setTimeout(function() {
                             window.location.reload();
                         }, 1500);
                     });
@@ -96,4 +96,5 @@ $(document).ready(function () {
             });
         }
     });
+
 });

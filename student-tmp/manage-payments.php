@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <?php
 include '../class/include.php';
+//include 'auth.php';
 
-$id = '';
-$id = $_GET['id'];
+date_default_timezone_set("Asia/Calcutta");
+$month = date('M');
 ?>
 
 <html lang="en">
@@ -16,18 +17,19 @@ $id = $_GET['id'];
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>AswennaColllage.lk - Manage Students </title>
+	<title>Aswanna.edu.lk - Manage Payments </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
-
+	<link rel="stylesheet" href="assets/preloarder/preloarder.css">
+	<link rel="stylesheet" href="assets/sweetalert/sweetalert.css">
 	<!-- Style-->
 	<link rel="stylesheet" href="assets/style.css">
 	<link rel="stylesheet" href="assets/skin_color.css">
 
 </head>
 
-<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed someBlock">
 
 	<div class="wrapper">
 		<div id="loader"></div>
@@ -37,6 +39,42 @@ $id = $_GET['id'];
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<div class="container-full">
+				<section class="content">
+					<div class="row">
+						<div class="col-lg-12 col-12">
+							<div class="box">
+								<div class="box-header with-border">
+									<h4 class="box-title">Uploard Your Slip</h4>
+								</div>
+								<form id="form-data">
+									<div class="box-body">
+
+										<div class="form-group">
+											<label>Student Name:</label>
+											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title">
+										</div>
+
+										<div class="form-group">
+											<label>Month:</label>
+											<input type="text" class="form-control  " placeholder="Enter Start date" name="start_date" id="start_date" value="<?php echo $month ?>">
+										</div>
+
+										<div class="form-group">
+											<label>Uploard Slip:</label>
+											<input type="file" class="form-control" name="slip_image" id="slip_image">
+										</div>
+									</div>
+
+									<div class="box-footer">
+										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
+									</div>
+									<input type="hidden" name="student_id" value="">
+									<input type="hidden" name="create">
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
 
 				<section class="content">
 					<div class="row">
@@ -44,17 +82,7 @@ $id = $_GET['id'];
 							<div class="col-12">
 								<div class="box">
 									<div class="box-header with-border">
-										<h3 class="box-title">Manage Students in <?php
-
-																					$DEFULAT_DATA = new DefaultData();
-																					foreach ($DEFULAT_DATA->Grades() as $key => $grades) {
-																						if ($key == $id) {
-																					?>
-													<span style="color: red;"><b><?php echo $grades; ?></b></span>
-											<?php }
-																					} ?>
-
-										</h3>
+										<h3 class="box-title">Manage Student Payments </h3>
 									</div>
 									<!-- /.box-header -->
 									<div class="box-body">
@@ -63,26 +91,32 @@ $id = $_GET['id'];
 												<thead>
 													<tr>
 														<th>Id#</th>
-														<th>Student Id</th>
-														<th>Full Name</th>
-														<th>Mobile Number</th>
-														<th>Action</th>
+														<th>Month Name</th>
+														<th>Payment date and time</th>
+														<th>Approved</th>
+														<th>Slip</th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php
-													$STUDENT = new Student(null);
-													foreach ($STUDENT->getStudentByGrade($id) as $key => $student) {
+													$PAYMENT = new Payment(NULL);
+													foreach ($PAYMENT->all() as $key => $payments) {
 														$key++;
 													?>
-
 														<tr>
-															<td><?php echo $key; ?></td>
-															<td><?php echo $student['student_id']; ?></td>
-															<td><?php echo $student['full_name']; ?></td>
+															<td>#0<?php echo $key ?></td>
+															<td><?php echo $payments['date_and_time'] ?></td>
+															<td><?php echo $payments['date_and_time'] ?></td>
+															<?php
+															if ($payments['status'] == 0) {
+															?>
+																<td class="text-danger">Not Approved</td>
+															<?php } else { ?>
 
-															<td><?php echo $student['phone_number']; ?></td>
-															<td><?php echo $student['student_id']; ?></td>
+																<td class="text-success">Approved</td>
+															<?php } ?>
+
+															<td><a href="#">View Slip</a></td>
 
 														</tr>
 													<?php } ?>
@@ -90,10 +124,10 @@ $id = $_GET['id'];
 												<tfoot>
 													<tr>
 														<th>Id#</th>
-														<th>Student Id</th>
-														<th>Full Name</th>
-														<th>Mobile Number</th>
-														<th>Action</th>
+														<th>Month Name</th>
+														<th>Slip Uploard Date & Time</th>
+														<th>Approved</th>
+														<th>Slip</th>
 													</tr>
 												</tfoot>
 											</table>
@@ -119,9 +153,13 @@ $id = $_GET['id'];
 	<script src="js/pages/chat-popup.js"></script>
 	<script src="assets/icons/feather-icons/feather.min.js"></script>
 	<script src="assets/vendor_components/datatable/datatables.min.js"></script>
+
+	<script src="ajax/js/payment.js"></script>
+
 	<!-- EduAdmin App -->
 	<script src="js/template.js"></script>
-
+	<script src="assets/sweetalert/sweetalert.min.js"></script>
+	<script src="js/jquery.preloader.min.js"></script>
 	<script src="js/pages/data-table.js"></script>
 
 </body>
