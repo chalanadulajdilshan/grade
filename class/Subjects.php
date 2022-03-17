@@ -12,14 +12,14 @@
 
 /**
 
- * Description of tution_class
+ * Description of subjects
 
  *
 
  * @author  Chalana dulaj
 
  */
-class TutionClass
+class Subjects
 {
 
     public $id;
@@ -34,7 +34,7 @@ class TutionClass
 
         if ($id) {
 
-            $query = "SELECT * FROM `tution_class` WHERE `id`=" . $id;
+            $query = "SELECT * FROM `subjects` WHERE `id`=" . $id;
             $db = new Database();
 
             $result = mysqli_fetch_array($db->readQuery($query));
@@ -56,7 +56,7 @@ class TutionClass
     {
 
 
-        $query = "INSERT INTO `tution_class` (`name`,`grade`,`image_name`,`description`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `subjects` (`name`,`grade`,`image_name`,`description`,`queue`) VALUES  ('"
             . $this->name . "','"
             . $this->grade . "','"
             . $this->image_name . "', '"
@@ -79,7 +79,7 @@ class TutionClass
     public function all()
     {
 
-        $query = "SELECT * FROM `tution_class` ORDER BY queue ASC";
+        $query = "SELECT * FROM `subjects` ORDER BY queue ASC";
 
         $db = new Database();
 
@@ -98,7 +98,7 @@ class TutionClass
     public function getClassesByGrade($id)
     {
 
-        $query = "SELECT * FROM `tution_class` WHERE `grade` =" . $id . " ORDER BY queue ASC";
+        $query = "SELECT * FROM `subjects` WHERE `grade` =" . $id . " ORDER BY queue ASC";
 
         $db = new Database();
 
@@ -123,7 +123,7 @@ class TutionClass
 
 
 
-        $query = "UPDATE  `tution_class` SET "
+        $query = "UPDATE  `subjects` SET "
             . "`name` ='" . $this->name . "', "
             . "`grade` ='" . $this->grade . "', " 
             . "`image_name` ='" . $this->image_name . "', "
@@ -156,7 +156,7 @@ class TutionClass
 
         unlink(Helper::getSitePath() . "upload/activity/" . $this->image_name);
 
-        $query = 'DELETE FROM `tution_class` WHERE id="' . $this->id . '"';
+        $query = 'DELETE FROM `subjects` WHERE id="' . $this->id . '"';
 
         $db = new Database();
 
@@ -166,7 +166,7 @@ class TutionClass
     public function arrange($key, $img)
     {
 
-        $query = "UPDATE `tution_class` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
+        $query = "UPDATE `subjects` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
 
         $db = new Database();
 
@@ -178,7 +178,7 @@ class TutionClass
     public function getActivitiesByTitle($name)
     {
 
-        $query = "SELECT `id` FROM `tution_class` WHERE `name` LIKE '" . $name . "'";
+        $query = "SELECT `id` FROM `subjects` WHERE `name` LIKE '" . $name . "'";
         $db = new Database();
         $result = mysqli_fetch_array($db->readQuery($query));
         return $result['id'];

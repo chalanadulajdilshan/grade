@@ -5,7 +5,8 @@ include '../class/include.php';
 
 $id = '';
 $id = $_GET['id'];
-$ONLINE_CLASS = new OnlineClass($id);
+$SUBJECT = new Subjects($id);
+
 date_default_timezone_set("Asia/Calcutta");
 $today_time = date('Y-m-d H:i');
 $today = date('Y-m-d');
@@ -53,8 +54,8 @@ $today = date('Y-m-d');
                                 <nav>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                                        <li class="breadcrumb-item" aria-current="page">UI</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Tabs</li>
+                                        <li class="breadcrumb-item" aria-current="page">Home</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Manage Class</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -88,7 +89,7 @@ $today = date('Y-m-d');
                                     <!-- Tab panes -->
                                     <div class="tab-content tabcontent-border">
                                         <div class="tab-pane active" id="home11" role="tabpanel">
-                                            <div class="align-items-center d-flex flex-column p-15 p-15"> 
+                                            <div class="align-items-center d-flex flex-column p-15 p-15" style="margin-top: 20px;;">
                                                 <h4 class="text-center text-danger"><b>WAITING FOR YOUR NEXT ONLINE CLASS SESSION..!</b></h4>
                                                 <div class="countdown countdown-container container">
                                                     <div class="clock row">

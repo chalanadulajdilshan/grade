@@ -167,9 +167,7 @@
                         <a href="index.php">
                             <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>
                             <span>Dashboard</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
+                             
                         </a>
                     </li>
 
@@ -178,14 +176,14 @@
                     <li class="treeview">
                         <a href="#">
                             <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
-                            <span>Classes</span>
+                            <span>Subjects</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="create-class.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Create Classes</a></li>
-                            <li><a href="manage-grades.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Manage Classes</a></li>
+                            <li><a href="create-subjects.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Create Subject</a></li>
+                            <li><a href="manage-grades.php"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Manage Subjects</a></li>
                         </ul>
                     </li>
 
