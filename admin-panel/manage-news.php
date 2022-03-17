@@ -80,23 +80,13 @@ include 'auth.php';
 										</a>
 
 									</div>
-
 								</div>
 							</div>
-
 						<?php } ?>
-
 				</section>
-				<!-- /.content -->
 			</div>
 		</div>
-		<!-- /.content-wrapper -->
-
 	</div>
-	<!-- ./wrapper -->
-
-
-	<!-- Page Content overlay -->
 
 
 	<!-- Vendor JS -->

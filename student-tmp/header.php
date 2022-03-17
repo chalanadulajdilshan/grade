@@ -173,12 +173,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="manage-payments.php">
                             <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>
                             <span>Payments</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </span>
+                            
                         </a>
                     </li>
                     <li>
