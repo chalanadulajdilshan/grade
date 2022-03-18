@@ -56,7 +56,7 @@ $month = date('M');
 
 										<div class="form-group">
 											<label>Month:</label>
-											<input type="text" class="form-control  " placeholder="Enter Start date" name="start_date" id="start_date" value="<?php echo $month ?>">
+											<input type="text" class="form-control  " placeholder="Enter Start date" name="date" id="start_date" value="<?php echo $month ?>">
 										</div>
 
 										<div class="form-group">
