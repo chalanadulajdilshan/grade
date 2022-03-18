@@ -2,7 +2,7 @@
 
 class Helper {
 
-    public function randamId() {
+    public static function randamId() {
 
         $today = time();
         $startDate = date('YmdHi', strtotime('1912-03-14 09:06:00'));
