@@ -1,7 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
 
-    $("#verify").click(function (event) {
+    $("#verify").click(function(event) {
         event.preventDefault();
 
         if (!$('#code').val() || $('#code').val().length === 0) {
@@ -10,7 +10,7 @@ $(document).ready(function () {
                 title: "Error!",
                 text: "Please enter verification code..!",
                 type: 'error',
-                timer: 2000,
+                timer: 2500,
                 showConfirmButton: false
             });
         } else {
@@ -27,7 +27,7 @@ $(document).ready(function () {
                     action: "MOBILEVERYFY"
                 },
                 dataType: "JSON",
-                success: function (result) {
+                success: function(result) {
                     if (result.status == 'success') {
                         window.swal({
                             title: "Please wait...!",
@@ -36,7 +36,7 @@ $(document).ready(function () {
                             showConfirmButton: false,
                             allowOutsideClick: false
                         });
-                        setTimeout(function () {
+                        setTimeout(function() {
                             window.location.replace("index.php?message=19");
                         }, 1500);
                     } else {
@@ -54,7 +54,7 @@ $(document).ready(function () {
 
     });
 
-    $("#send_phone_verification").click(function (event) {
+    $("#send_phone_verification").click(function(event) {
         var id = $("#student").val();
         $.ajax({
             url: "ajax/php/mobile-verify.php",
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 action: "MOBILECODE"
             },
             dataType: "JSON",
-            success: function (result) {
+            success: function(result) {
                 if (result.status == 'success') {
                     window.swal({
                         title: "Please wait...!",
@@ -73,7 +73,7 @@ $(document).ready(function () {
                         showConfirmButton: false,
                         allowOutsideClick: false
                     });
-                    setTimeout(function () {
+                    setTimeout(function() {
                         window.location.href = "mobile-verify.php";
                     }, 1000);
                 } else {
@@ -90,7 +90,7 @@ $(document).ready(function () {
     });
 
     var timer2 = "01:30";
-    var interval = setInterval(function () {
+    var interval = setInterval(function() {
         var timer = timer2.split(':');
         //by parsing integer, I avoid all extra string processing
         var minutes = parseInt(timer[0], 10);
@@ -109,11 +109,10 @@ $(document).ready(function () {
         timer2 = minutes + ':' + seconds;
     }, 1000);
     setTimeout(
-            function ()
-            {
+        function() {
 
-                $('#send_phone_verification').prop("disabled", false);
-                $('#countdown_p').hide();
-            }, 121000);
+            $('#send_phone_verification').prop("disabled", false);
+            $('#countdown_p').hide();
+        }, 121000);
 
 });

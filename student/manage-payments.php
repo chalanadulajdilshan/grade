@@ -21,7 +21,7 @@ $month = date('M');
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
-	<link rel="stylesheet" href="assets/preloarder/preloarder.css">
+	<link rel="stylesheet" href="assets/preloarder/preloader.css">
 	<link rel="stylesheet" href="assets/sweetalert/sweetalert.css">
 	<!-- Style-->
 	<link rel="stylesheet" href="assets/style.css">
@@ -68,8 +68,7 @@ $month = date('M');
 									<div class="box-footer">
 										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
 									</div>
-									<input type="hidden" name="student_id" value="">
-									<input type="hidden" name="create">
+									<input type="hidden" name="student_id" value="1">
 								</form>
 							</div>
 						</div>
@@ -90,7 +89,7 @@ $month = date('M');
 											<table id="example1" class="table table-bordered table-striped">
 												<thead>
 													<tr>
-														<th>Id#</th>
+														<th>Id</th>
 														<th>Month Name</th>
 														<th>Payment date and time</th>
 														<th>Approved</th>
@@ -104,7 +103,7 @@ $month = date('M');
 														$key++;
 													?>
 														<tr>
-															<td>#0<?php echo $key ?></td>
+															<td>0<?php echo $key ?></td>
 															<td><?php echo $payments['date_and_time'] ?></td>
 															<td><?php echo $payments['date_and_time'] ?></td>
 															<?php
@@ -116,14 +115,14 @@ $month = date('M');
 																<td class="text-success">Approved</td>
 															<?php } ?>
 
-															<td><a href="#">View Slip</a></td>
+															<td><a href="">View Slip</a></td>
 
 														</tr>
 													<?php } ?>
 												</tbody>
 												<tfoot>
 													<tr>
-														<th>Id#</th>
+														<th>Id</th>
 														<th>Month Name</th>
 														<th>Slip Uploard Date & Time</th>
 														<th>Approved</th>
@@ -138,29 +137,27 @@ $month = date('M');
 							</div>
 						</div>
 				</section>
-
-
 			</div>
-		</div>
-		<!-- /.content-wrapper -->
-
+		</div> 
 	</div>
 	<!-- ./wrapper -->
 
 
 	<!-- Vendor JS -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="ajax/js/payment.js"></script>
 	<script src="js/vendors.min.js"></script>
+
+  
 	<script src="js/pages/chat-popup.js"></script>
 	<script src="assets/icons/feather-icons/feather.min.js"></script>
 	<script src="assets/vendor_components/datatable/datatables.min.js"></script>
-
-	<script src="ajax/js/payment.js"></script>
-
-	<!-- EduAdmin App -->
+  
 	<script src="js/template.js"></script>
 	<script src="assets/sweetalert/sweetalert.min.js"></script>
 	<script src="js/jquery.preloader.min.js"></script>
 	<script src="js/pages/data-table.js"></script>
+
 
 </body>
 
