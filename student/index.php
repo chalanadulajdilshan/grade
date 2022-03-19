@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <?php
 include '../class/include.php';
+include './auth.php';
 //include 'auth.php';
 $STUDENT = new Student(1);
 ?>
