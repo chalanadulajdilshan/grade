@@ -66,7 +66,7 @@ $month = date('M');
 									</div>
 
 									<div class="box-footer">
-										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
+										<input type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="addPayment" value="Create"/>
 									</div>
 									<input type="hidden" name="student_id" value="1">
 								</form>

@@ -1,11 +1,9 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * Description of student
  *
@@ -13,7 +11,6 @@
  */
 class Student
 {
-
     public $id;
     public $full_name;
     public $student_id;
@@ -34,18 +31,12 @@ class Student
     public $resetcode;
     public $cookie;
     public $queue;
-
     public function __construct($id)
     {
-
         if ($id) {
-
             $query = "SELECT * FROM `student` WHERE `id`=" . $id;
-
             $db = new Database();
-
             $result = mysqli_fetch_array($db->readQuery($query));
-
             $this->id = $result['id'];
             $this->full_name = $result['full_name'];
             $this->student_id = $result['student_id'];
@@ -64,196 +55,136 @@ class Student
             $this->phone_verification = $result['phone_verification'];
             $this->resetcode = $result['resetcode'];
             $this->queue = $result['queue'];
-
             return $result;
         }
     }
-
     public function create()
     {
-
         $query = "INSERT INTO `student` (`full_name`, `student_id`,`grade`,`phone_number`,`password`) VALUES  ('"
             . $this->full_name . "','"
             . $this->student_id . "', '"
             . $this->grade . "', '"
             . $this->phone_number . "', '"
             . $this->password . "')";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     public function all()
     {
-
         $query = "SELECT * FROM `student`  ORDER BY `id` ASC";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
         $array_res = array();
-
         while ($row = mysqli_fetch_array($result)) {
             array_push($array_res, $row);
         }
-
         return $array_res;
     }
-
     public function getActiveStudent()
     {
-
         $query = "SELECT * FROM `student` WHERE `status` = 1 ORDER BY `id` DESC";
         $db = new Database();
-
         $result = $db->readQuery($query);
         $array_res = array();
-
         while ($row = mysqli_fetch_array($result)) {
             array_push($array_res, $row);
         }
-
         return $array_res;
     }
-
     public function getInActiveStudent()
     {
-
         $query = "SELECT * FROM `student` WHERE `status` = 0 ORDER BY `id` DESC";
         $db = new Database();
-
         $result = $db->readQuery($query);
         $array_res = array();
-
         while ($row = mysqli_fetch_array($result)) {
             array_push($array_res, $row);
         }
-
         return $array_res;
     }
-
     public function getStudentByGrade($id)
     {
-
         $query = "SELECT * FROM `student` WHERE `grade` ='$id' ORDER BY `id` ASC";
         $db = new Database();
         $result = $db->readQuery($query);
         $array_res = array();
-
         while ($row = mysqli_fetch_array($result)) {
             array_push($array_res, $row);
         }
-
         return $array_res;
     }
-
     public function login($student_id, $password)
     {
-
         $enPass = md5($password);
-
         $query = "SELECT `id` FROM `student` WHERE `student_id`= '" . $student_id . "' AND `password`= '" . $enPass . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
-
             return FALSE;
         } else {
-
             $this->id = $result['id'];
             $this->setAuthToken($result['id']);
             $this->setLastLogin($result['id']);
-
             $this->setUserSession($result['id']);
             $this->updateResetCodeNull(' ');
-
             return $result['id'];
         }
     }
-
     public function checkOldPass($id, $password)
     {
-
         $enPass = md5($password);
-
         $query = "SELECT `id` FROM `student` WHERE `id`= '" . $id . "' AND `password`= '" . $enPass . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function changePassword($id, $password)
     {
-
         $enPass = md5($password);
-
         $query = "UPDATE  `student` SET "
             . "`password` ='" . $enPass . "' "
             . "WHERE `id` = '" . $id . "'";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     public function ChangeProPic($student, $file)
     {
-
         $query = "UPDATE  `student` SET "
             . "`image_name` ='" . $file . "' "
             . "WHERE `id` = '" . $student . "'";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     public function checkMobileNumberVerifried($id)
     {
-
-
         $query = "SELECT * FROM `student` WHERE `phone_verification` = 0 AND `id`= '" . $id . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     //    public function checkMobileVerificationCode($code) {
     //
     //
@@ -288,83 +219,55 @@ class Student
     //            return FALSE;
     //        }
     //    }
-
     public function checkRegistrationMobileNo($mobile)
     {
-
-
         $query = "SELECT `id` FROM `student` WHERE `phone_number`= '" . $mobile . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function checkStudentId($student_id)
     {
-
-
         $query = "SELECT `id` FROM `student` WHERE `student_id`= '" . $student_id . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function authenticate()
     {
-
         if (!isset($_SESSION)) {
-
             session_start();
         }
-
         $id = NULL;
         $authToken = NULL;
-
         if (isset($_SESSION["id"])) {
-
             $id = $_SESSION["id"];
         }
-
         if (isset($_SESSION["authToken"])) {
-
             $authToken = $_SESSION["authToken"];
         }
-
         $query = "SELECT `id` FROM `student` WHERE `id`= '" . $id . "' AND `authToken`= '" . $authToken . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function logOut()
     {
-
         if (!isset($_SESSION)) {
-
             session_start();
         }
-
         unset($_SESSION["id"]);
         unset($_SESSION["full_name"]);
         unset($_SESSION["email"]);
@@ -372,147 +275,103 @@ class Student
         unset($_SESSION["authToken"]);
         unset($_SESSION["level"]);
         unset($_SESSION["image_name"]);
-
         return TRUE;
     }
-
     public function checkLogin($id)
     {
-
         $query = "SELECT * FROM `student` WHERE `id` ='" . $id . "'  AND `status` = 0 ";
-
         $db = new Database();
         $result = mysqli_fetch_array($db->readQuery($query));
         return $result['id'];
     }
-
     private function setUserSession($student)
     {
-
         if (!isset($_SESSION)) {
-
             session_start();
         }
         $STU = new Student($student);
-        $_SESSION["id"] = $STU->id;
+        $_SESSION["id"] = $STU->id; 
+        $_SESSION["name"] = $STU->full_name;  
+        $_SESSION["authToken"] = $STU->authToken; 
+        $_SESSION["student_id"] = $STU->student_id;
     }
-
     private function setAuthToken($id)
     {
-
         $authToken = md5(uniqid(rand(), true));
-
         $query = "UPDATE `student` SET `authToken` ='" . $authToken . "' WHERE `id`='" . $id . "'";
-
         $db = new Database();
-
         if ($db->readQuery($query)) {
-
             return $authToken;
         } else {
             return FALSE;
         }
     }
-
     public function checkRegistrationMobile($phone_number)
     {
-
-
         $query = "SELECT `id` FROM `student` WHERE `phone_number`= '" . $phone_number . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function checkRegistrationEmail($email)
     {
-
         $query = "SELECT `id` FROM `student` WHERE `email`= '" . $email . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     private function setLastLogin($id)
     {
-
         date_default_timezone_set('Asia/Colombo');
-
         $now = date('Y-m-d H:i:s');
-
         $query = "UPDATE `student` SET `lastLogin` ='" . $now . "' WHERE `id`='" . $id . "'";
-
         $db = new Database();
-
         if ($db->readQuery($query)) {
-
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     public function checkEmail($email)
     {
-
         $query = "SELECT `email`,`student_id` FROM `student` WHERE `email`= '" . $email . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
-
             return FALSE;
         } else {
-
             return $result;
         }
     }
-
     public function getLastStudentId()
     {
         $query = " SELECT `id` FROM `student` ORDER BY `id` DESC LIMIT 1";
         $db = new Database();
         $result = mysqli_fetch_assoc($db->readQuery($query));
-
         return $result['id'];
     }
-
     public function GenarateCode($email)
     {
-
         $rand = rand(10000, 99999);
-
         $query = "UPDATE  `student` SET "
             . "`resetcode` ='" . $rand . "' "
             . "WHERE `email` = '" . $email . "'";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     //    public function GenarateMobileCode() {
     //
     //        $rand = rand(10000, 99999);
@@ -560,37 +419,24 @@ class Student
     //            return FALSE;
     //        }
     //    }
-
     public function updateResetCodeNull($code)
     {
-
         $query = "UPDATE  `student` SET "
             . "  `resetcode` = '" . $code . "'";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
-
             return TRUE;
         } else {
-
             return FALSE;
         }
     }
-
     public function SelectForgetUser($email)
     {
-
         if ($email) {
-
             $query = "SELECT `email`,`full_name`,`student_id`,`resetcode` FROM `student` WHERE `email`= '" . $email . "'";
-
             $db = new Database();
-
             $result = mysqli_fetch_array($db->readQuery($query));
-
             $this->full_name = $result['full_name'];
             $this->student_id = $result['student_id'];
             $this->email = $result['email'];
@@ -598,86 +444,59 @@ class Student
             return $result;
         }
     }
-
     public function SelectResetCode($code)
     {
-
         $query = "SELECT `id` FROM `student` WHERE `resetcode`= '" . $code . "'";
-
         $db = new Database();
-
         $result = mysqli_fetch_array($db->readQuery($query));
-
         if (!$result) {
             return FALSE;
         } else {
             return TRUE;
         }
     }
-
     public function updatePassword($password, $code)
     {
-
         $enPass = md5($password);
-
         $query = "UPDATE  `student` SET "
             . "`password` ='" . $enPass . "' "
             . "WHERE `resetcode` = '" . $code . "'";
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
-
             return TRUE;
         } else {
-
             return FALSE;
         }
     }
-
     public function update()
     {
-
         $query = "UPDATE  `student` SET "
             . "`full_name` ='" . $this->full_name . "', "
             . "`phone_number` ='" . $this->phone_number . "', "
             . "`address` ='" . $this->address . "', "
             . "`email` ='" . $this->email . "' "
             . "WHERE `id` = '" . $this->id . "'";
-
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
-
             return $this->__construct($this->id);
         } else {
-
             return FALSE;
         }
     }
-
     public function sendStudentRegistrationEmail($name, $email, $student_id, $password)
     {
-
-
         $to = '<' . $email . '>';
         $subject = 'Registered Successfully - easytutor.lk ';
         $from = 'EasyTutor.LK NOREPLY <info@easytutor.lk>';
-
         // To send HTML mail, the Content-type header must be set
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
         // Create email headers
         $headers .= 'From: ' . $from . "\r\n" .
             'Reply-To: ' . $from . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
-
         // Compose a simple HTML email message
         $message = '<html> 
      <body>
@@ -710,7 +529,6 @@ class Student
                         </tr>
                     </tbody>
                 </table>
-
                 <table style="max-width:660px;border: 1px solid #999;" width="100%" cellspacing="0" cellpadding="0" border="0">
                     <tbody>
                         <tr>
@@ -738,7 +556,6 @@ class Student
                                         <tr>
                                             <td style="color:#6d6e70;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-style:normal;font-weight:500;line-height:18px;padding:0px 40px 25px 40px" align="left">This email was generated for notification purpose. You are receiving this email because you are a member of easytutor.lk web Site. </td>
                                         </tr>
-
                                         <tr bgcolor="#0e82ac">
                                             <td   align="center">
                                                 <table style="max-width:660px;margin-bottom: 15px;margin-top: 15px;" width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -779,16 +596,12 @@ class Student
 </div>
      </body>
 </html>';
-
-
-
         if (mail($to, $subject, $message, $headers)) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-
     //     public function _set_cookie() {
     //         $key = 'val';
     //         $value = rand(100000, 999999);
@@ -796,29 +609,20 @@ class Student
     //         setcookie($key, $value, time() + (10 * 365 * 24 * 60 * 60 * 500), '/'); //expire days
     // //SET ON PHP
     //         $_COOKIE[$key] = $value;
-
     //         $query = "UPDATE  `student` SET "
     //                 . "`cookie` ='" . $value . "' "
     //                 . "WHERE `id` = '" . $this->id . "'";
-
-
     //         $db = new Database();
-
     //         $result = $db->readQuery($query);
-
     //         if ($result) {
-
     //             return $this->__construct($this->id);
     //         } else {
-
     //             return FALSE;
     //         }
     //     }
-
     function _get_cookie($key)
     {
         if (isset($_COOKIE[$key])) {
-
             return $_COOKIE[$key];
         } else {
             return FALSE;
@@ -826,7 +630,6 @@ class Student
     }
     public function updateActiveStudent()
     {
-
         $query = "UPDATE  `student` SET "
             . "`full_name` ='" . $this->full_name . "', "
             . "`gender` ='" . $this->gender . "', "
@@ -836,48 +639,26 @@ class Student
             . "`email` ='" . $this->email . "', "
             . "`status` ='" . $this->status . "' "
             . "WHERE `id` = '" . $this->id . "'";
-
-
         $db = new Database();
-
         $result = $db->readQuery($query);
-
         if ($result) {
-
             return $this->__construct($this->id);
         } else {
-
             return FALSE;
         }
     }
-
     public function delete($id)
     {
-
         $STUDENT_REGISTRATION = new StudentRegistration(NULL);
-
         $STUDENT_REGISTRATION->deleteStudentId($id);
-
-
         $query = 'DELETE FROM `student` WHERE id="' . $id . '"';
-
-
         $db = new Database();
-
-
-
         return $db->readQuery($query);
     }
-
     public function deleteClass()
     {
-
-
-
         foreach ($STUDENT_REGISTRATION->getRegistrationClassesByStudent($this->id) as $student_registration) {
-
             $STUDENT_REGISTRATION->id = $student_registration["id"];
-
             $STUDENT_REGISTRATION->delete();
         }
     }
