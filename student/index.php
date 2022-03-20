@@ -2,8 +2,7 @@
 <?php
 include '../class/include.php';
 include './auth.php';
-//include 'auth.php';
-$STUDENT = new Student(1);
+$STUDENT = new Student($_SESSION['id']);
 ?>
 <html lang="en">
 
@@ -15,7 +14,7 @@ $STUDENT = new Student(1);
     <meta name="author" content="">
     <link rel="icon" href="/assetsimages/favicon.ico">
 
-    <title>aswannaCollage.lk - Dashboard</title>
+    <title>aswanna.edu.lk - Dashboard</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/vendors_css.css">
@@ -77,7 +76,7 @@ $STUDENT = new Student(1);
                     <div class="row fx-element-overlay">
 
                         <?php
-                         
+
                         $SUBJECTS = new Subjects(NULL);
                         foreach ($SUBJECTS->getClassesByGrade(6) as $key => $subjects) {
                         ?>

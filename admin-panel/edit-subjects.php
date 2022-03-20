@@ -5,7 +5,7 @@ include 'auth.php';
 
 $id = '';
 $id = $_GET['id'];
-$TUTION_CLASSES = new TutionClass($id);
+$SUBJECTS = new Subjects($id);
 
 
 ?>
@@ -19,11 +19,11 @@ $TUTION_CLASSES = new TutionClass($id);
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>AswannaCollage.lk - Edit Class </title>
+	<title>Aswanna.edu.lk - Edit Subject </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
-	<link rel="stylesheet" href="assets/preloarder/preloarder.css">
+	<link rel="stylesheet" href="assets/preloarder/preloader.css">
 	<link rel="stylesheet" href="assets/sweetalert/sweetalert.css">
 
 
@@ -49,7 +49,7 @@ $TUTION_CLASSES = new TutionClass($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Edit Classes - <b><?php echo $TUTION_CLASSES->name ?></b></h4>
+									<h4 class="box-title">Edit Subjects - <b><?php echo $SUBJECTS->name ?></b></h4>
 								</div>
 								<!-- /.box-header -->
 								<form id="form-data">
@@ -57,7 +57,7 @@ $TUTION_CLASSES = new TutionClass($id);
 
 										<div class="form-group">
 											<label>Subject name:</label>
-											<input type="text" class="form-control" placeholder="Enter class title" name="name" id="name" value="<?php echo $TUTION_CLASSES->name ?>">
+											<input type="text" class="form-control" placeholder="Enter class title" name="name" id="name" value="<?php echo $SUBJECTS->name ?>">
 										</div>
 										<div class="form-group">
 											<label>Select Grade:</label>
@@ -66,7 +66,7 @@ $TUTION_CLASSES = new TutionClass($id);
 												<?php
 												$DEFULTDATA = new DefaultData();
 												foreach ($DEFULTDATA->Grades() as $key => $grade) {
-													if ($key ==  $TUTION_CLASSES->grade) {
+													if ($key ==  $SUBJECTS->grade) {
 												?>
 														<option value="<?php echo $key  ?>" selected><?php echo $grade ?></option>
 													<?php } else { ?>
@@ -78,13 +78,13 @@ $TUTION_CLASSES = new TutionClass($id);
 										</div>
 										<div class="form-group">
 											<label>Class Image:</label>
-											<input type="file" class="form-control"   name="image_name" value="<?php echo $TUTION_CLASSES->image_name ?>">
-											<img src="../upload/classes/<?php echo $TUTION_CLASSES->image_name ?>" style="width: 30%; margin-top: 20px;">
+											<input type="file" class="form-control"   name="image_name" value="<?php echo $SUBJECTS->image_name ?>">
+											<img src="../upload/Subjects/<?php echo $SUBJECTS->image_name ?>" style="width: 30%; margin-top: 20px;">
 										</div>
 
 										<div class="form-group">
 											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control"><?php echo $TUTION_CLASSES->description ?></textarea>
+											<textarea id="description" name="description" class="form-control"><?php echo $SUBJECTS->description ?></textarea>
 
 										</div>
 
@@ -95,7 +95,7 @@ $TUTION_CLASSES = new TutionClass($id);
 									</div>
 									<input type="hidden" name="update">
 									<input type="hidden" name="id" value="<?php echo $id ?>">
-									<input type="hidden" value="<?php echo $TUTION_CLASSES->image_name; ?>" name="oldImageName" />
+									<input type="hidden" value="<?php echo $SUBJECTS->image_name; ?>" name="oldImageName" />
 
 								</form>
 							</div>
@@ -116,11 +116,12 @@ $TUTION_CLASSES = new TutionClass($id);
 
 	<!-- EduAdmin App -->
 	<script src="js/template.js"></script>
-	<script src="ajax/js/add-class.js"></script>
+	<script src="ajax/js/subjects.js"></script>
 	<script src="assets/sweetalert/sweetalert.min.js"></script>
 	<script src="js/jquery.preloader.min.js"></script>
 
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+
 
 	<script>
 		tinymce.init({

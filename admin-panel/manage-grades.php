@@ -39,23 +39,15 @@ include 'auth.php';
 			<div class="container-full">
 				<section class="content">
 					<div class="row" style="margin-top: 100px;">
-						<?php
-						$DEFULTDATA = new DefaultData();
-						foreach ($DEFULTDATA->Grades() as $key => $grade) {
-						?>
 
-							<div class="col-md-4" style="margin-bottom: 30px;">
-								<a href="manage-subjects.php?id=<?php echo $key ?>">
-									<div class="card card-body card-inverse card-primary text-center">
-										<blockquote class="card-bodyquote">
-											<h1><?php echo $grade ?></h1>
 
-										</blockquote>
-									</div>
-								</a>
-							</div>
+						<div class="col-md-4" style="margin-bottom: 30px;">
+							<a href="manage-subjects.php?id=6">
+								<img src="../assets/images/grade 6.jpg">
+							</a>
+						</div>
 
-						<?php } ?>
+
 				</section>
 			</div>
 		</div>

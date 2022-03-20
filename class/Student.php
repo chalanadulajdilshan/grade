@@ -4,6 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  * Description of student
  *
@@ -69,7 +70,7 @@ class Student
         $db = new Database();
         $result = $db->readQuery($query);
         if ($result) {
-            return TRUE;
+            return mysqli_insert_id($db->DB_CON);
         } else {
             return FALSE;
         }
@@ -185,40 +186,28 @@ class Student
             return TRUE;
         }
     }
-    //    public function checkMobileVerificationCode($code) {
-    //
-    //
-    //        $query = "SELECT * FROM `student` WHERE `phone_code` = '" . $code . "' AND `id`= '" . $this->id . "'";
-    //
-    //        $db = new Database();
-    //
-    //        $result = mysqli_fetch_array($db->readQuery($query));
-    //
-    //        if (!$result) {
-    //            return FALSE;
-    //        } else {
-    //            return TRUE;
-    //        }
-    //    }
-    //    public function updateMobileVerification() {
-    //
-    //        $query = "UPDATE  `student` SET "
-    //                . "`phone_verification` ='" . $this->phone_verification . "' "
-    //                . "WHERE `id` = '" . $this->id . "'";
-    //
-    //
-    //        $db = new Database();
-    //
-    //        $result = $db->readQuery($query);
-    //
-    //        if ($result) {
-    //
-    //            return $this->__construct($this->id);
-    //        } else {
-    //
-    //            return FALSE;
-    //        }
-    //    }
+
+    public function updateMobileVerification()
+    {
+
+        $query = "UPDATE  `student` SET "
+            . "`phone_verification` ='" . $this->phone_verification . "' "
+            . "WHERE `id` = '" . $this->id . "'";
+
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+
+            return $this->__construct($this->id);
+        } else {
+
+            return FALSE;
+        }
+    }
+
     public function checkRegistrationMobileNo($mobile)
     {
         $query = "SELECT `id` FROM `student` WHERE `phone_number`= '" . $mobile . "'";
@@ -290,9 +279,9 @@ class Student
             session_start();
         }
         $STU = new Student($student);
-        $_SESSION["id"] = $STU->id; 
-        $_SESSION["name"] = $STU->full_name;  
-        $_SESSION["authToken"] = $STU->authToken; 
+        $_SESSION["id"] = $STU->id;
+        $_SESSION["name"] = $STU->full_name;
+        $_SESSION["authToken"] = $STU->authToken;
         $_SESSION["student_id"] = $STU->student_id;
     }
     private function setAuthToken($id)
@@ -372,53 +361,44 @@ class Student
             return FALSE;
         }
     }
-    //    public function GenarateMobileCode() {
-    //
-    //        $rand = rand(10000, 99999);
-    //
-    //        $query = "UPDATE  `student` SET "
-    //                . "`phone_code` ='" . $rand . "' "
-    //                . "WHERE `id` = '" . $this->id . "'";
-    //
-    //        $db = new Database();
-    //
-    //        $result = $db->readQuery($query);
-    //
-    //        if ($result) {
-    //            return $this->__construct($this->id);
-    //        } else {
-    //            return FALSE;
-    //        }
-    //    }
-    //function
-    //    function sendSMS($phone_number, $message) {
-    //        $MSISDN = $phone_number;
-    //        $MESSAGE = $message;
-    //        $USERNAME = "thinesh_sir";
-    //        $PWD = "TH321SR";
-    //        $SRC = "Thinesh Sir";
-    //
-    //
-    //        $url = 'http://sms.textware.lk:5000/sms/send_sms.php';
-    //        $myvars = 'username=' . $USERNAME . '&password=' . $PWD . '&src=' . $SRC . '&dst=' . $MSISDN . '&msg=' . $MESSAGE;
-    //
-    //        $ch = curl_init($url);
-    //
-    //        curl_setopt($ch, CURLOPT_POST, 1);
-    //        curl_setopt($ch, CURLOPT_POSTFIELDS, $myvars);
-    //        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    //        curl_setopt($ch, CURLOPT_HEADER, 0);
-    //        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    //
-    //
-    //        $response = curl_exec($ch);
-    //
-    //        if ($response) {
-    //            return TRUE;
-    //        } else {
-    //            return FALSE;
-    //        }
-    //    }
+
+    public function GenarateMobileCode()
+    {
+
+        $rand = rand(10000, 99999);
+
+        $query = "UPDATE  `student` SET "
+            . "`phone_code` ='" . $rand . "' "
+            . "WHERE `id` = '" . $this->id . "'";
+
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+            return $this->__construct($this->id);
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function checkMobileVerificationCode($code)
+    {
+
+
+        $query = "SELECT * FROM `student` WHERE `phone_code` = '" . $code . "' AND `id`= '" . $this->id . "'";
+
+        $db = new Database();
+
+        $result = mysqli_fetch_array($db->readQuery($query));
+
+        if (!$result) {
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
     public function updateResetCodeNull($code)
     {
         $query = "UPDATE  `student` SET "
@@ -645,21 +625,6 @@ class Student
             return $this->__construct($this->id);
         } else {
             return FALSE;
-        }
-    }
-    public function delete($id)
-    {
-        $STUDENT_REGISTRATION = new StudentRegistration(NULL);
-        $STUDENT_REGISTRATION->deleteStudentId($id);
-        $query = 'DELETE FROM `student` WHERE id="' . $id . '"';
-        $db = new Database();
-        return $db->readQuery($query);
-    }
-    public function deleteClass()
-    {
-        foreach ($STUDENT_REGISTRATION->getRegistrationClassesByStudent($this->id) as $student_registration) {
-            $STUDENT_REGISTRATION->id = $student_registration["id"];
-            $STUDENT_REGISTRATION->delete();
         }
     }
 }

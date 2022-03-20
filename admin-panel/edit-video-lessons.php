@@ -56,7 +56,7 @@ $VIDEOLESSON = new VideoLessons($id);
 										<div class="form-group">
 											<label>Lesson Titile:</label>
 											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php
-																															$LESSON = new Lessons($VIDEOLESSON->lesson_id);
+																															$LESSON = new ZoomClass($VIDEOLESSON->lesson_id);
 																															echo $LESSON->title ?>" readonly>
 										</div>
 

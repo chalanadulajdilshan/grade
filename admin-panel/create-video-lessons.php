@@ -5,7 +5,7 @@ include 'auth.php';
 
 $id = '';
 $id = $_GET['id'];
-$LESSON = new Lessons($id);
+$ZOOMCLASS = new ZoomClass($id);
 ?>
 <html lang="en">
 
@@ -21,7 +21,7 @@ $LESSON = new Lessons($id);
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
-	<link rel="stylesheet" href="assets/preloarder/preloarder.css">
+	<link rel="stylesheet" href="assets/preloarder/preloader.css">
 	<link rel="stylesheet" href="assets/sweetalert/sweetalert.css">
 
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
@@ -48,14 +48,14 @@ $LESSON = new Lessons($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Add <b> <?php echo $LESSON->title ?> </b> - Video Lessons</h4>
+									<h4 class="box-title">Add <b> <?php echo $ZOOMCLASS->title ?> </b> - Video Lessons</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
 
 										<div class="form-group">
 											<label>Lesson Titile:</label>
-											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php echo $LESSON->title ?>" readonly>
+											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php echo $ZOOMCLASS->title ?>" readonly>
 										</div>
 
 										<div class="form-group">
@@ -73,7 +73,7 @@ $LESSON = new Lessons($id);
 									<div class="box-footer">
 										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
 									</div>
-									<input type="hidden" name="lesson_id" value="<?php echo $id ?>">
+									<input type="hidden" name="subject_id" value="<?php echo $id ?>">
 									<input type="hidden" name="create">
 								</form>
 							</div>

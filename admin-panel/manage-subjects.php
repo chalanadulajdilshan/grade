@@ -42,7 +42,7 @@ $SUBJECTS = new Subjects(NUll);
 				<div class="content-header">
 					<div class="d-flex align-items-center">
 						<div class="mr-auto">
-							<h3 class="page-title">Manage CLasess</h3>
+							<h3 class="page-title">Manage Subjects</h3>
 							<div class="d-inline-block align-items-center">
 								<nav>
 									<ol class="breadcrumb">
@@ -73,7 +73,7 @@ $SUBJECTS = new Subjects(NUll);
 									</div>
 
 									<div class="card-footer   d-flex">
-										<a href="edit-class.php?id=<?php echo $subjects['id'] ?>">
+										<a href="edit-subjects.php?id=<?php echo $subjects['id'] ?>">
 											<i class="  bx bx-edit-alt edit-btn edit-btn-sty"></i>
 										</a> |
 										<a href="create-zoom-class.php?id=<?php echo $subjects['id'] ?>">

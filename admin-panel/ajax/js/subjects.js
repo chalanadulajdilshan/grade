@@ -112,7 +112,7 @@ $(document).ready(function() {
 
             var formData = new FormData($('#form-data')[0]);
             $.ajax({
-                url: "ajax/php/add-class.php",
+                url: "ajax/php/subjects.php",
                 type: "POST",
                 data: formData,
                 async: false,

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+$id = '';
+$id = $_GET['id'];
+?>
 <html lang="en">
 
 <head>
@@ -44,7 +48,7 @@
 												<span class="input-group-text bg-transparent"><i class="ti-lock"></i></span>
 											</div>
 
-											<input type="text" class="form-control pl-15 bg-transparent" placeholder="Please enter verification code" name="student_id" data-field="student_id">
+											<input type="text" class="form-control pl-15 bg-transparent" placeholder="Please enter verification code" name="code" id="code">
 
 										</div>
 									</div>
@@ -56,7 +60,7 @@
 												<label for="basic_checkbox_1">Remember Me</label>
 											</div>
 										</div>
- 
+
 										<div class="col-6">
 											<div class="fog-pwd text-right">
 												<a href="#" class="hover-warning" role="alert" data-toggle="modal" data-target="#loginModal"><i class="ion ion-mobile"></i> Change Mobile Number</a><br>
@@ -65,7 +69,7 @@
 										<div class="form-group">
 											<div class="text-center text-danger btn-padding font-size-new" id="message"></div>
 										</div>
-										 
+
 										<div class="col-12 text-center">
 											<button type="submit" class="btn btn-danger mt-10" id="verify">Veriify Now</button>
 										</div>
@@ -75,6 +79,7 @@
 								<div class="text-center">
 									<p class="mt-15 mb-0">Do you have an account? <a href="register.php" class="text-warning ml-5">Login</a></p>
 								</div>
+								<input type="hidden" id="student" value="<?php echo $id ?>">
 							</div>
 						</div>
 						<div class="text-center">
