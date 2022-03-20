@@ -7,7 +7,7 @@ if (isset($_POST['create'])) {
     $VIDEO_LESSONS = new VideoLessons(NULL);
 
     $VIDEO_LESSONS->title = $_POST['title'];
-    $VIDEO_LESSONS->lesson_id = $_POST['lesson_id'];
+    $VIDEO_LESSONS->subject_id = $_POST['subject_id'];
     $VIDEO_LESSONS->url = $_POST['url'];
 
     $VIDEO_LESSONS->create();
@@ -31,14 +31,4 @@ if (isset($_POST['update'])) {
     echo json_encode($result);
     exit();
 }
-
-if (isset($_POST['arrange'])) {
-
-    foreach ($_POST['sort'] as $key => $img) {
-        $key = $key + 1;
-
-        $VIDEO_LESSONS = Offer::arrange($key, $img);
-
-        header('Location:../../arrange-offer.php?message=9');
-    }
-}
+ 

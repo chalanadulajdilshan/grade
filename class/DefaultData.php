@@ -27,73 +27,30 @@ class DefaultData
         );
     }
 
-    //select class Duration    
-    public function classDuration()
-    {
-        return array(
-            "1" => "1 Hour",
-            "2" => "1.30 Hours",
-            "3" => "2 Hours",
-            "4" => "2.30 Hours",
-            "5" => "3 Hours",
-            "6" => "3.30 Hours",
-            "7" => "4 Hours",
-            "8" => "4.30 Hours",
-            "9" => "5 Hours",
-            "10" => "5.30 Hours",
-            "11" => "6 Hours",
-            "12" => "6.30 Hours",
-            "13" => "7 Hours",
-            "14" => "7.30 Hours",
-            "15" => "8 Hours",
-            "16" => "8.30 Hours",
-            "17" => "9 Hours",
-            "18" => "9.30 Hours",
-            "19" => "10 Hours"
-        );
-    }
 
-    //Curancy Type 
-    public function paymentMethod()
+    //send mobile verification
+    function sendSMS($sender_id, $phone_number, $message)
     {
-        return array(
-            "1" => "Free",
-            "2" => "Paid"
-        );
-    }
 
-    //offers select types
-    public function getOfferTypes()
-    {
-        return array(
-            1 => "Accommodation",
-            2 => "Tour Company",
-            3 => "Rent a Car",
-            4 => "Restaurant",
-            5 => "Other"
-        );
-    }
 
-    //offers select types
-    public function getBookingStatus()
-    {
-        return array(
-            0 => "Pending..!",
-            1 => "Confirm..!",
-            2 => "Cancel..!"
-        );
-    }
 
-    //facility type
-    public function getFacilityType()
-    {
-        return array(
-            1 => "Internet access",
-            2 => "Getting around",
-            3 => "Things to do, ways to relax",
-            4 => "Dining, drinking, and snacking",
-            5 => "Access, services, and conveniences ",
-            6 => "For the kids"
+        $data = array(
+            'user_id' => '104329',
+            'api_key' => '5sd7dr4kpd400d66m',
+            'sender_id' => $sender_id,
+            'to' => $phone_number,
+            'message' => $message
         );
+
+        $url = 'http://send.ozonedesk.com/api/v2/send.php';
+        $ch = curl_init($url);
+        $postString = http_build_query($data, '', '&');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($response)->status;
     }
 }

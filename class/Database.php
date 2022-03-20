@@ -24,7 +24,7 @@ class Database {
     private $name = 'aswenna';
     private $user = 'root';
     private $password = '';
-    private $DB_CON = '';
+    public $DB_CON = '';
 
     public function __construct() {
 

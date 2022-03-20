@@ -11,7 +11,7 @@ class VideoLessons
 
     public $id;
     public $title;
-    public $lesson_id;
+    public $subject_id;
     public $url;
     public $queue;
 
@@ -27,7 +27,7 @@ class VideoLessons
 
             $this->id = $result['id'];
             $this->title = $result['title']; 
-            $this->lesson_id = $result['lesson_id'];
+            $this->subject_id = $result['subject_id'];
             $this->url = $result['url'];
             $this->queue = $result['queue'];
         }
@@ -38,9 +38,9 @@ class VideoLessons
 
 
 
-        $query = "INSERT INTO `video_lessons` (`title`,`lesson_id`, `url`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `video_lessons` (`title`,`subject_id`, `url`,`queue`) VALUES  ('"
             . $this->title . "', '"
-            . $this->lesson_id . "', '"
+            . $this->subject_id . "', '"
             . $this->url . "', '"
             . $this->queue . "')";
 
@@ -55,10 +55,10 @@ class VideoLessons
         }
     }
 
-    public function getVideoLessonsByLessonId($lesson_id)
+    public function getVideoLessonsBySubjectId($subject_id)
     {
 
-        $query = "SELECT  * FROM `video_lessons` WHERE `lesson_id` = '" . $lesson_id . "'";
+        $query = "SELECT  * FROM `video_lessons` WHERE `subject_id` = '" . $subject_id . "'";
 
         $db = new Database();
 

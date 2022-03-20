@@ -9,7 +9,6 @@ if (!$STUDENT->authenticate()) {
     redirect('login.php');
 }
 
-//if (Student::checkMobileNumberVerifried($_SESSION['id'])) {
-//   
-//    redirect('mobile-verify.php');
-//}
+if ($STUDENT->checkMobileNumberVerifried($_SESSION['id'])) {
+    redirect('mobile-verify.php?id=' . $_SESSION['id']);
+}

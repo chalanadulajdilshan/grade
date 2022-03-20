@@ -74,7 +74,7 @@ $(document).ready(function() {
                                 allowOutsideClick: false
                             });
                             setTimeout(function() {
-                                window.location.replace("index.php");
+                                window.location.replace("mobile-verify.php?id=" + result.id);
 
                             }, 1000);
                         }

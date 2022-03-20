@@ -66,6 +66,7 @@ class ZoomClass {
                 . $this->password . "','"
                 . $this->queue . "')";
 
+ 
 
         $db = new Database();
 
@@ -109,7 +110,8 @@ class ZoomClass {
     public function getOnlineClassBySubjectId($id) {
 
         $query = "SELECT * FROM `zoom_class` WHERE `subject` =" . $id . " ORDER BY queue ASC";
-
+var_dump($query);
+exit();
         $db = new Database();
 
         $result = $db->readQuery($query);

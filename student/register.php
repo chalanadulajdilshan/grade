@@ -29,7 +29,7 @@ $LAST_ID = $LAST_ID + 1;
 
 </head>
 
-<body class="hold-transition theme-primary bg-img" style="background-image: url(images/auth-bg/bg-2.jpg)">
+<body class="hold-transition theme-primary bg-img someBlock" style="background-image: url(images/auth-bg/bg-2.jpg)">
 
 	<div class="container h-p100">
 		<div class="row align-items-center justify-content-md-center h-p100">

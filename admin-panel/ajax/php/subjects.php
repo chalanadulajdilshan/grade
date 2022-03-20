@@ -9,8 +9,8 @@ if (isset($_POST['create'])) {
     $SUBJECTS->name = ucfirst($_POST['name']);
     $SUBJECTS->grade = ucfirst($_POST['grade']);
     $SUBJECTS->description = $_POST['description'];
-
-
+  
+    
     $dir_dest = '../../../upload/Subjects/';
 
     $handle = new Upload($_FILES['image_name']);
@@ -43,7 +43,7 @@ if (isset($_POST['create'])) {
 
 if (isset($_POST['update'])) {
 
-    $dir_dest = '../../../upload/classes/';
+    $dir_dest = '../../../upload/Subjects/';
     $handle = new Upload($_FILES['image_name']);
 
     $imgName = null;
@@ -66,7 +66,7 @@ if (isset($_POST['update'])) {
         }
     }
 
-    $SUBJECTS = new TutionClass($_POST['id']);
+    $SUBJECTS = new Subjects($_POST['id']);
 
     $SUBJECTS->image_name = $_POST['oldImageName'];
     $SUBJECTS->name = ucfirst($_POST['name']);

@@ -29,10 +29,17 @@ if ($CHECK_MOBILE == 'true') {
 
     $res = $STUDENT->create();
 
-    if ($res == TRUE) {
+    if ($res) {
+        $DEFAULTDATA = new DefaultData();
+        $STUDENTS = new Student($res);
+        $STUDENTS->GenarateMobileCode();
+        //send verification mobile code
+        $message = "Your account verification code is " . $STUDENTS->phone_code;
+
+        $SMS = $DEFAULTDATA->sendSMS('MYT-Partner', preg_replace('/[^0-9]/', '', $STUDENTS->phone_number), $message);
 
         $STUDENT->login($_POST['student_id'], $_POST['password']);
-        $response = ["status" => 'success'];
+        $response = ["status" => 'success', "id" => $res];
 
         echo json_encode($response);
         exit();

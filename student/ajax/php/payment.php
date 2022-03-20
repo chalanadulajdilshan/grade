@@ -2,6 +2,9 @@
 
 include '../../../class/include.php';
 
+date_default_timezone_set("Asia/Calcutta");
+$date = date('Y-m-d H:i:s');
+
 $PAYMENT = new Payment(NULL);
 
 $dir_dest = '../../../upload/payments/';
@@ -27,7 +30,7 @@ if ($handle->uploaded) {
 }
 
 $PAYMENT->student_id = $_POST['student_id'];
-$PAYMENT->date_and_time = $_POST['date'];
+$PAYMENT->date_and_time = $date;
 $PAYMENT->slip_image = $imgName;
 $PAYMENT->status = 0;
 //add resize slip image

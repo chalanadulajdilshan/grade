@@ -2,6 +2,7 @@
 
 <?php
 include '../class/include.php';
+include './auth.php';
 
 $id = '';
 $id = $_GET['id'];
@@ -49,7 +50,7 @@ $today = date('Y-m-d');
                 <div class="content-header">
                     <div class="d-flex align-items-center">
                         <div class="mr-auto">
-                            <h3 class="page-title">Tabs</h3>
+                            <h3 class="page-title"> <?php echo $SUBJECT->name ?> Class</h3>
                             <div class="d-inline-block align-items-center">
                                 <nav>
                                     <ol class="breadcrumb">
@@ -81,10 +82,10 @@ $today = date('Y-m-d');
                                     <ul class="nav nav-tabs nav-fill" role="tablist">
                                         <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home11" role="tab"><span><i class="ion-home"></i></span> <span class="hidden-xs-down ml-15">Online Class</span></a> </li>
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">Video Lessons</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages11" role="tab"><span><i class="ion-email"></i></span> <span class="hidden-xs-down ml-15">Messages</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#setting11" role="tab"><span><i class="ion-settings"></i></span> <span class="hidden-xs-down ml-15">Setting</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#about11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">About</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contact11" role="tab"><span><i class="ion-camera"></i></span> <span class="hidden-xs-down ml-15">Contact</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages11" role="tab"><span><i class="ion-email"></i></span> <span class="hidden-xs-down ml-15">TUtorials</span></a> </li>
+                                        <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#setting11" role="tab"><span><i class="ion-settings"></i></span> <span class="hidden-xs-down ml-15">Setting</span></a> </li> -->
+                                        <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#about11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">About</span></a> </li> -->
+                                        <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contact11" role="tab"><span><i class="ion-camera"></i></span> <span class="hidden-xs-down ml-15">Contact</span></a> </li> -->
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content tabcontent-border">
@@ -152,8 +153,12 @@ $today = date('Y-m-d');
                                         <div class="tab-pane" id="profile11" role="tabpanel">
                                             <div class="p-15">
                                                 <div class="box">
-
-                                                    <iframe width="100%" height="580" src="//www.youtube.com/embed/jFGKJBPFdUA?controls=0&modestbranding=0&showinfo=0&fs=0" frameborder="0" allowfullscreen></iframe>
+                                                    <?php
+                                                    $VIDEO_LESSONS = new VideoLessons(NULL);
+                                                    foreach ($VIDEO_LESSONS->getVideoLessonsBySubjectId($id) as $key => $videolessons) {
+                                                    ?>
+                                                        <iframe width="100%" height="580" src="//www.youtube.com/embed/<?php echo $videolessons['url'] ?>?controls=0&modestbranding=0&showinfo=0&fs=0" frameborder="0" allowfullscreen></iframe>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +169,7 @@ $today = date('Y-m-d');
                                                 <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="setting11" role="tabpanel">
+                                        <!-- <div class="tab-pane" id="setting11" role="tabpanel">
                                             <div class="p-15">
                                                 <h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
                                                 <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
@@ -184,7 +189,7 @@ $today = date('Y-m-d');
                                                 <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
                                                 <h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <!-- /.box-body -->
@@ -244,8 +249,11 @@ $today = date('Y-m-d');
         $(function() {
             $('.countdown').final_countdown({
                 'start': "<?= strtotime("now") ?>",
-                'end': "<?= strtotime($ONLINE_CLASS->start_date . " " . $ONLINE_CLASS->start_time) ?>",
-                'now': "<?= strtotime("now") ?>"
+                <? $ZOOM_class = new ZoomClass(NULL);
+                foreach ($ZOOM_class->getOnlineClassBySubjectId($id) as $zoom_class) {
+                ?> 'end': "<?= strtotime($zoom_class['start_date'] . " " . $zoom_class['start_time']) ?>",
+                    'now': "<?= strtotime("now") ?>"
+                <? } ?>
             }, function() {
                 console.log('finished');
                 location.href = './zoom/'

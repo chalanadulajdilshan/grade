@@ -18,11 +18,11 @@ $SUBJECTS = new Subjects($id);
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>Aswanna.edu.lk - Create lessons </title>
+	<title>Aswanna.edu.lk - Create Zoom Online lessons  </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
-	<link rel="stylesheet" href="assets/preloarder/preloarder.css">
+	<link rel="stylesheet" href="assets/preloarder/preloader.css">
 	<link rel="stylesheet" href="assets/sweetalert/sweetalert.css">
 
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
@@ -52,41 +52,41 @@ $SUBJECTS = new Subjects($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Create <?php echo $SUBJECTS->name ?> - Lessons</h4>
+									<h4 class="box-title">Create <?php echo $SUBJECTS->name ?> Zoom Online Lessons</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
 
 										<div class="form-group">
 											<label>Lesson Titile:</label>
-											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title">
+											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Start Date:</label>
-											<input type="text" class="form-control datepicker" placeholder="Enter Start date" name="start_date" id="start_date">
+											<input type="text" class="form-control datepicker" placeholder="Enter Start date" name="start_date" id="start_date" autocomplete="off">
 										</div>
 
 
 										<div class="form-group">
 											<label>Start Time:</label>
-											<input type="text" class="form-control timepicker" placeholder="Enter Start time" name="start_time" id="start_time">
+											<input type="text" class="form-control timepicker" placeholder="Enter Start time" name="start_time" id="start_time" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Meeting Id:</label>
-											<input type="text" class="form-control" placeholder="Enter Meeting Id" name="meeting_id" id="meeting_id">
+											<input type="text" class="form-control" placeholder="Enter Meeting Id" name="meeting_id" id="meeting_id" autocomplete="off">
 										</div>
 
 
 										<div class="form-group">
 											<label>Password:</label>
-											<input type="text" class="form-control" placeholder="Enter Password" name="password" id="password">
+											<input type="text" class="form-control" placeholder="Enter Password" name="password" id="password" autocomplete="off">
 										</div>
 
 										<div class="form-group">
 											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control"></textarea>
+											<textarea id="description" name="description" class="form-control" autocomplete="off"></textarea>
 
 										</div>
 
@@ -110,7 +110,7 @@ $SUBJECTS = new Subjects($id);
 							<div class="col-12">
 								<div class="box">
 									<div class="box-header with-border">
-										<h3 class="box-title">Manage Lessons
+										<h3 class="box-title">Manage Zoom Online Lessons
 
 										</h3>
 									</div>
@@ -186,8 +186,7 @@ $SUBJECTS = new Subjects($id);
 
 	<!-- Vendor JS -->
 	<script src="js/vendors.min.js"></script>
-	<script src="js/pages/chat-popup.js"></script>
-	<script src="assets/icons/feather-icons/feather.min.js"></script>
+  
 
 	<!-- EduAdmin App -->
 	<script src="js/template.js"></script>
