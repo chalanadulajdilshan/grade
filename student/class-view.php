@@ -29,9 +29,7 @@ $today = date('Y-m-d');
 
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
-
-    <link rel="stylesheet" href="assets/style.css">
-
+ 
     <!-- <link rel="stylesheet" href="assets/jquery.classycountdown.min.css"> -->
     <link rel="stylesheet" href="assets/countdown/demo/css/demo.css" type="text/css">
 </head>
@@ -245,15 +243,16 @@ $today = date('Y-m-d');
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="assets/countdown/demo/js/kinetic.js"></script>
     <script type="text/javascript" src="assets/countdown/jquery.final-countdown.js"></script>
+    <?php
+    $ZOOM = new ZoomClass(NULL);
+    $zoom_class = $ZOOM->getClassBySubjectId($SUBJECT->id);
+    ?>
     <script type="text/javascript">
         $(function() {
             $('.countdown').final_countdown({
                 'start': "<?= strtotime("now") ?>",
-                <? $ZOOM_class = new ZoomClass(NULL);
-                foreach ($ZOOM_class->getOnlineClassBySubjectId($id) as $zoom_class) {
-                ?> 'end': "<?= strtotime($zoom_class['start_date'] . " " . $zoom_class['start_time']) ?>",
-                    'now': "<?= strtotime("now") ?>"
-                <? } ?>
+                'end': "<?= strtotime($zoom_class['start_date'] . " " . $zoom_class['start_time']) ?>",
+                'now': "<?= strtotime("now") ?>",
             }, function() {
                 console.log('finished');
                 location.href = './zoom/'
