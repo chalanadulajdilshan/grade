@@ -32,7 +32,7 @@
     <nav hidden class="nav-white nav-transparent">
         <div class="nav-header">
             <a href="index.php" class="brand">
-                <img src="assets/images/logo-light-text5.png" alt="" />
+            <img src="assets/images/log" alt="" />
             </a>
             <button class="toggle-bar">
                 <span class="ti-menu"></span>

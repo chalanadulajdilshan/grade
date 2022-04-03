@@ -1,50 +1,32 @@
 <?php
 
-include '../../../../class/include.php';
+include '../../../class/include.php';
 
 
 $STUDENT = new Student(NULL);
 
-$email = $_POST['email'];
+$mobile_number = $_POST['mobile_number'];
 
 
-if ($STUDENT->checkEmail($email)) {
+if ($STUDENT->checkMobileNumber($mobile_number)) {
 
-    if ($STUDENT->GenarateCode($email)) {
-        $res = $STUDENT->SelectForgetUser($email);
+    if ($STUDENT->GenarateCode($mobile_number)) {
+        $res = $STUDENT->SelectForgetUser($mobile_number);
 
         $username = $STUDENT->full_name;
-        $email = $STUDENT->email;
+        $phone_number = $STUDENT->phone_number;
         $resetcode = $STUDENT->resetcode;
 
-        date_default_timezone_set('Asia/Colombo');
+        $DEFAULTDATA = new DefaultData();
+         
 
-        $todayis = date("l, F j, Y, g:i a");
+        //send verification mobile code
+        $message = "Your account reset code is " .$STUDENT->resetcode;
 
-        $subject = 'Dashboard - Password Reset';
-        $from = 'info@easytutor.lk'; // give from email address
+        $SMS = $DEFAULTDATA->sendSMS('MYT-Partner', preg_replace('/[^0-9]/', '',  $phone_number), $message);
 
 
-        $headers = "From: " . $from . "\r\n";
-        $headers .= "Reply-To: " . $email . "\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-        $html = "<table style='border:solid 1px #F0F0F0; font-size: 15px; font-family: sans-serif; padding: 0;'>";
-
-        $html .= "<tr><th colspan='3' style='font-size: 18px; padding: 30px 25px 0 25px; color: #fff; text-align: center; background-color: #4184F3;'><h2>EasyTutor.lk</h2> </th> </tr>";
-
-        $html .= "<tr><td colspan='3' style='font-size: 16px; padding: 20px 25px 10px 25px; color: #333; text-align: left; background-color: #fff;'><h3>" . $subject . "</h3> </td> </tr>";
-
-        $html .= "<tr><td colspan='3' style='font-size: 14px; padding: 5px 25px 10px 25px; color: #666; background-color: #fff; line-height: 25px;'><b>Password Reset Code: </b> " . $resetcode . "</td></tr>";
-
-        $html .= "<tr><td colspan='3' style='font-size: 14px; padding: 0 25px 10px 25px; color: #666; background-color: #fff; '><b>Username: </b> " . $username . "</td></tr>";
-
-        $html .= "<tr><td colspan='3' style='font-size: 14px; background-color: #FAFAFA; padding: 25px; color: #333; font-weight: 300; text-align: justify; '>Thank you</td></tr>";
-
-        $html .= "</table>";
-
-        if (mail($email, $subject, $html, $headers)) {
+        if ($SMS) {
             $result = ["status" => 'success'];
             echo json_encode($result);
             exit();
@@ -54,12 +36,9 @@ if ($STUDENT->checkEmail($email)) {
             exit();
         }
     }
-
-
-
     exit();
 } else {
-    $result = ["status" => 'email_error'];
+    $result = ["status" => 'error'];
     echo json_encode($result);
     exit();
 }

@@ -1,12 +1,12 @@
 
 <?php
 
-include '../../../../class/include.php';
+include '../../../class/include.php';
 
 
 if (isset($_POST['PasswordReset'])) {
     $STUDENT = new Student(NULL);
-    $code = $_POST["code"];
+    $code = $_POST["reset_code"];
     $password = $_POST["password"];
     $confpassword = $_POST["confirmpassword"];
 

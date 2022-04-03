@@ -329,9 +329,9 @@ class Student
             return FALSE;
         }
     }
-    public function checkEmail($email)
+    public function checkMobileNumber($phone_number)
     {
-        $query = "SELECT `email`,`student_id` FROM `student` WHERE `email`= '" . $email . "'";
+        $query = "SELECT `phone_number`,`student_id` FROM `student` WHERE `phone_number`= '" . $phone_number . "'";
         $db = new Database();
         $result = mysqli_fetch_array($db->readQuery($query));
         if (!$result) {
@@ -347,12 +347,12 @@ class Student
         $result = mysqli_fetch_assoc($db->readQuery($query));
         return $result['id'];
     }
-    public function GenarateCode($email)
+    public function GenarateCode($phone_number)
     {
         $rand = rand(10000, 99999);
         $query = "UPDATE  `student` SET "
             . "`resetcode` ='" . $rand . "' "
-            . "WHERE `email` = '" . $email . "'";
+            . "WHERE `phone_number` = '" . $phone_number . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         if ($result) {
@@ -411,15 +411,15 @@ class Student
             return FALSE;
         }
     }
-    public function SelectForgetUser($email)
+    public function SelectForgetUser($phone_number)
     {
-        if ($email) {
-            $query = "SELECT `email`,`full_name`,`student_id`,`resetcode` FROM `student` WHERE `email`= '" . $email . "'";
+        if ($phone_number) {
+            $query = "SELECT `phone_number`,`full_name`,`student_id`,`resetcode` FROM `student` WHERE `phone_number`= '" . $phone_number . "'";
             $db = new Database();
             $result = mysqli_fetch_array($db->readQuery($query));
             $this->full_name = $result['full_name'];
             $this->student_id = $result['student_id'];
-            $this->email = $result['email'];
+            $this->phone_number = $result['phone_number'];
             $this->resetcode = $result['resetcode'];
             return $result;
         }
