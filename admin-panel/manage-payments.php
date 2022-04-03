@@ -60,6 +60,7 @@ $month = date('M');
 														<th>Payment date and time</th>
 														<th>Approved</th>
 														<th>Slip</th>
+														<th>Action</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -83,6 +84,7 @@ $month = date('M');
 															<?php } ?>
 
 															<td><a href="#">View Slip</a></td>
+															<td><a href="edit-payments.php?id=<?= $payments["id"] ?>" class="btn btn-warning btn-sm">Edit</a></td>
 
 														</tr>
 													<?php } ?>
@@ -95,6 +97,7 @@ $month = date('M');
 														<th>Slip Uploard Date & Time</th>
 														<th>Approved</th>
 														<th>Slip</th>
+                                                        <th>Action</th>
 													</tr>
 												</tfoot>
 											</table>
