@@ -3,7 +3,7 @@
 /**
  * Description of Product
  *
- * @author sublime holdings
+ 
  * @web www.sublime.lk
  */
 class District {
