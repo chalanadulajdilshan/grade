@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include '../class/include.php';
-//include 'auth.php';
+include 'auth.php';
 
 date_default_timezone_set("Asia/Calcutta");
 $month = date('M');
@@ -115,7 +115,7 @@ $month = date('M');
 																<td class="text-success">Approved</td>
 															<?php } ?>
 
-															<td><a href="">View Slip</a></td>
+															<td><a href="../upload/payments/<?php echo $payments['slip_image'] ?>">View Slip</a></td>
 
 														</tr>
 													<?php } ?>
