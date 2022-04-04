@@ -5,6 +5,8 @@ include 'auth.php';
 
 date_default_timezone_set("Asia/Calcutta");
 $month = date('M');
+
+$STUDENT = new Student($_SESSION['id'])
 ?>
 
 <html lang="en">
@@ -44,14 +46,19 @@ $month = date('M');
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Uploard Your Slip</h4>
+									<h4 class="box-title">Uploard Your Payments Slip</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
 
 										<div class="form-group">
+											<label>Student Id:</label>
+											<input type="text" class="form-control" value="<?php echo $STUDENT->student_id ?>" readonly>
+										</div>
+
+										<div class="form-group">
 											<label>Student Name:</label>
-											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title">
+											<input type="text" class="form-control" value="<?php echo $STUDENT->full_name ?>" readonly>
 										</div>
 
 										<div class="form-group">
@@ -66,7 +73,7 @@ $month = date('M');
 									</div>
 
 									<div class="box-footer">
-										<input type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="addPayment" value="Create"/>
+										<input type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="addPayment" value="Create" />
 									</div>
 									<input type="hidden" name="student_id" value="1">
 								</form>
@@ -101,10 +108,11 @@ $month = date('M');
 													$PAYMENT = new Payment(NULL);
 													foreach ($PAYMENT->all() as $key => $payments) {
 														$key++;
+														$month = date("M",strtotime($payments['date_and_time']));
 													?>
 														<tr>
 															<td>0<?php echo $key ?></td>
-															<td><?php echo $payments['date_and_time'] ?></td>
+															<td><?php echo $month ?></td>
 															<td><?php echo $payments['date_and_time'] ?></td>
 															<?php
 															if ($payments['status'] == 0) {
@@ -115,7 +123,7 @@ $month = date('M');
 																<td class="text-success">Approved</td>
 															<?php } ?>
 
-															<td><a href="../upload/payments/<?php echo $payments['slip_image'] ?>">View Slip</a></td>
+															<td><a href="../upload/payments/<?php echo $payments['slip_image'] ?>" target="_blank">View Slip</a></td>
 
 														</tr>
 													<?php } ?>
@@ -138,7 +146,7 @@ $month = date('M');
 						</div>
 				</section>
 			</div>
-		</div> 
+		</div>
 	</div>
 	<!-- ./wrapper -->
 
@@ -148,11 +156,11 @@ $month = date('M');
 	<script src="ajax/js/payment.js"></script>
 	<script src="js/vendors.min.js"></script>
 
-  
+
 	<script src="js/pages/chat-popup.js"></script>
 	<script src="assets/icons/feather-icons/feather.min.js"></script>
 	<script src="assets/vendor_components/datatable/datatables.min.js"></script>
-  
+
 	<script src="js/template.js"></script>
 	<script src="assets/sweetalert/sweetalert.min.js"></script>
 	<script src="js/jquery.preloader.min.js"></script>

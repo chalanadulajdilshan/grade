@@ -1,4 +1,6 @@
-﻿<header class="main-header">
+﻿<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+<header class="main-header">
     <div class="d-flex align-items-center logo-box justify-content-start">
 
         <!-- Logo -->
@@ -90,7 +92,7 @@
 
                     <li>
                         <a href="time-table.php">
-                        <i class='bx bxs-calendar' ></i>
+                            <i class='bx bxs-calendar'></i>
                             <span>Time Table</span>
                         </a>
                     </li>
