@@ -15,7 +15,7 @@ include 'auth.php';
     <meta name="author" content="">
     <link rel="icon" href="/assetsimages/favicon.ico">
 
-    <title>EduAdmin - Dashboard</title>
+    <title>Aswanna.edu.lk - Dashboard</title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/vendors_css.css">
@@ -23,6 +23,7 @@ include 'auth.php';
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/skin_color.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
 </head>
 
@@ -463,23 +464,7 @@ include 'auth.php';
     </div>
     <!-- ./wrapper -->
 
-    <!-- ./side demo panel -->
-    <div class="sticky-toolbar">
-        <a href="#" data-toggle="tooltip" data-placement="left" title="Buy Now" class="waves-effect waves-light btn btn-success btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Money"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-        <a href="https://themeforest.net/user/multipurposethemes/portfolio" data-toggle="tooltip" data-placement="left" title="Portfolio" class="waves-effect waves-light btn btn-danger btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Image"></span>
-        </a>
-        <a id="chat-popup" href="#" data-toggle="tooltip" data-placement="left" title="Live Chat" class="waves-effect waves-light btn btn-warning btn-flat btn-sm">
-            <span class="icon-Group-chat"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-    </div>
-    <!-- Sidebar -->
-
-
-    <!-- Page Content overlay -->
-
+     
 
     <!-- Vendor JS -->
     <script src="js/vendors.min.js"></script>

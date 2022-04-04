@@ -18,6 +18,7 @@ $STUDENT = new Student($_SESSION['id']);
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/vendors_css.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
@@ -35,10 +36,10 @@ $STUDENT = new Student($_SESSION['id']);
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container-full">
-                <!-- Main content -->
+
                 <section class="content">
-                    <div class="row">
-                        <div class="col-lg-8 col-12">
+                    <div class="row fx-element-overlay">
+                    <div class="col-lg-8 col-12">
                             <div class="box pull-up">
                                 <div class="box-body bg-img" style="background-image: url(images/bg-5.png);" data-overlay-light="9">
                                     <div class="d-lg-flex align-items-center justify-content-between">
@@ -61,22 +62,18 @@ $STUDENT = new Student($_SESSION['id']);
                                 <div class="box-body">
                                     <div class="d-flex align-items-center">
                                         <div class="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center">
-                                            <span class="text-white icon-Cart2 font-size-40"><span class="path1"></span><span class="path2"></span></span>
+                                        <i class='bx bx-phone-call' style="font-size: 35px;"></i>
                                         </div>
                                         <div class="ml-10">
                                             <h4 class="text-white mb-0">+1 1234 456 789</h4>
-                                            <h5 class="text-white-50 mb-0">Toll Free</h5>
+                                            <h5 class="text-white-50 mb-0">Call for the any issues</h5>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
 
-                    </div>
-                    <div class="row fx-element-overlay">
-
                         <?php
-
                         $SUBJECTS = new Subjects(NULL);
                         foreach ($SUBJECTS->getClassesByGrade(6) as $key => $subjects) {
                         ?>
@@ -102,8 +99,6 @@ $STUDENT = new Student($_SESSION['id']);
                                     </div>
                                 </a>
                             </div>
-
-
                         <?php } ?>
 
                     </div>
@@ -385,19 +380,7 @@ $STUDENT = new Student($_SESSION['id']);
     </div>
     <!-- ./wrapper -->
 
-    <!-- ./side demo panel -->
-    <div class="sticky-toolbar">
-        <a href="#" data-toggle="tooltip" data-placement="left" title="Buy Now" class="waves-effect waves-light btn btn-success btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Money"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-        <a href="https://themeforest.net/user/multipurposethemes/portfolio" data-toggle="tooltip" data-placement="left" title="Portfolio" class="waves-effect waves-light btn btn-danger btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Image"></span>
-        </a>
-        <a id="chat-popup" href="#" data-toggle="tooltip" data-placement="left" title="Live Chat" class="waves-effect waves-light btn btn-warning btn-flat btn-sm">
-            <span class="icon-Group-chat"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-    </div>
-    <!-- Sidebar -->
+
 
 
     <!-- Page Content overlay -->
