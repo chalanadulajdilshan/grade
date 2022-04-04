@@ -23,7 +23,6 @@ include 'auth.php';
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/skin_color.css">
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
 </head>
 

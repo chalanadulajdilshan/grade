@@ -83,7 +83,7 @@ $id = $_GET['id'];
 															<td><?php echo $student['full_name']; ?></td>
 
 															<td><?php echo $student['phone_number']; ?></td>
-															<td><?php echo $student['student_id']; ?></td>
+															<td> </td>
 
 														</tr>
 													<?php } ?>
