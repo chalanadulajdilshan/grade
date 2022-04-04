@@ -115,7 +115,7 @@ class ZoomClass
     {
 
         $query = "SELECT * FROM `zoom_class` WHERE `subject` =" . $id . " ORDER BY queue ASC";
-         
+
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -138,7 +138,7 @@ class ZoomClass
     {
 
         $query = "SELECT * FROM `zoom_class` WHERE `subject` =" . $id . " LIMIT 1";
-         
+
         $db = new Database();
         $result = mysqli_fetch_array($db->readQuery($query));
         return $result;
@@ -173,6 +173,35 @@ class ZoomClass
 
             return FALSE;
         }
+    }
+
+    public function getClasses()
+    {
+
+        $query = "SELECT * FROM `zoom_class` ORDER BY `id` DESC";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+
+        $array_res = array();
+        while ($row = mysqli_fetch_array($result)) {
+            $array_res[] = [
+                // 'groupId' => $row['id'], 
+                "title" =>  $row['title'] . ' - ' . $row['start_time'],
+                "start" =>  $row['start_date'] /* . " " . $row['start_time'] */,
+                // "end" =>  $row['check_out'],
+                "color" =>  "#FF5B5C",
+                "textColor" =>  "white",
+                // "url" => URL . "customerbookings/view_booking/" . base64_encode($row['id']),
+                "display" => 'list-item'
+                // "borderColor" => 'transparent', 
+                // "allDay" => false,
+                // "startRecur" =>  $row['check_in'],
+                // "endRecur" =>  $row['check_out'],
+                // "daysOfWeek" =>  [0,1], 
+            ];
+        }
+        return $array_res;
     }
 
     public function delete()
