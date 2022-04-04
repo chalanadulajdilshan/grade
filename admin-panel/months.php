@@ -39,63 +39,63 @@ include 'auth.php';
 					<div class="row" style="margin-top: 50px;">
 
 						<div class="col-md-4">
-							<a href="manage-payments.php">
+							<a href="manage-payments.php?id=<?= $_GET['id'] ?>&month=1">
 								<img src="images/january.jpg">
 							</a>
 						</div>
 
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=2">
 								<img src="images/FEBRUARY.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=3">
 								<img src="images/MARCH.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=4">
 								<img src="images/APRIL.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=5">
 								<img src="images/MAY.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=6">
 								<img src="images/JUNE.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=7">
 								<img src="images/JULY.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=8">
 								<img src="images/AUGUST.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=9">
 								<img src="images/SEPTEMBER.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=10">
 								<img src="images/OCTOMBER.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=11">
 								<img src="images/NOVEMBER.jpg">
 							</a>
 						</div>
 						<div class="col-md-4">
-							<a href="manage-classes.php?id=">
+							<a href="manage-classes.php?id=<?= $_GET['id'] ?>&month=12">
 								<img src="images/DECEMBER.jpg">
 							</a>
 						</div>

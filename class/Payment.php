@@ -196,15 +196,7 @@ class Payment
 
 
 
-        $query = "UPDATE  `payment` SET "
-            . "`title` ='" . $this->title . "', "
-            . "`image_name` ='" . $this->image_name . "', "
-            . "`short_description` ='" . $this->short_description . "', "
-            . "`description` ='" . $this->description . "', "
-            . "`price` ='" . $this->price . "', "
-            . "`discount` ='" . $this->discount . "', "
-            . "`queue` ='" . $this->queue . "' "
-            . "WHERE `id` = '" . $this->id . "'";
+        $query = "UPDATE  `payment` SET `status` ='" . $this->status . "' WHERE `id` = '" . $this->id . "'";
 
 
 
