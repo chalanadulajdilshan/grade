@@ -29,7 +29,7 @@ $today = date('Y-m-d');
 
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
- 
+
     <!-- <link rel="stylesheet" href="assets/jquery.classycountdown.min.css"> -->
     <link rel="stylesheet" href="assets/countdown/demo/css/demo.css" type="text/css">
 </head>
@@ -80,7 +80,7 @@ $today = date('Y-m-d');
                                     <ul class="nav nav-tabs nav-fill" role="tablist">
                                         <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home11" role="tab"><span><i class="ion-home"></i></span> <span class="hidden-xs-down ml-15">Online Class</span></a> </li>
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">Video Lessons</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages11" role="tab"><span><i class="ion-email"></i></span> <span class="hidden-xs-down ml-15">TUtorials</span></a> </li>
+                                        <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages11" role="tab"><span><i class="ion-email"></i></span> <span class="hidden-xs-down ml-15">TUtorials</span></a> </li> -->
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#setting11" role="tab"><span><i class="ion-settings"></i></span> <span class="hidden-xs-down ml-15">Setting</span></a> </li> -->
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#about11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">About</span></a> </li> -->
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contact11" role="tab"><span><i class="ion-camera"></i></span> <span class="hidden-xs-down ml-15">Contact</span></a> </li> -->
@@ -142,22 +142,48 @@ $today = date('Y-m-d');
                                                                     </div><!-- /.text -->
                                                                 </div><!-- /.inner -->
                                                             </div><!-- /.wrap -->
-                                                        </div><!-- /.clock-item -->
-                                                    </div><!-- /.clock -->
-                                                </div><!-- /.countdown-wrapper -->
-
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
                                         <div class="tab-pane" id="profile11" role="tabpanel">
                                             <div class="p-15">
-                                                <div class="box">
-                                                    <?php
-                                                    $VIDEO_LESSONS = new VideoLessons(NULL);
-                                                    foreach ($VIDEO_LESSONS->getVideoLessonsBySubjectId($id) as $key => $videolessons) {
-                                                    ?>
-                                                        <iframe width="100%" height="580" src="//www.youtube.com/embed/<?php echo $videolessons['url'] ?>?controls=0&modestbranding=0&showinfo=0&fs=0" frameborder="0" allowfullscreen></iframe>
-                                                    <?php } ?>
+
+
+                                                <div class="tab-content">
+                                                    <div id="navpills-1" class="tab-pane active">
+                                                        <div class=" tab-pane animation-fade active" id="category-1" role="tabpanel">
+                                                            <div class="panel-group panel-group-simple panel-group-continuous" id="accordion2" aria-multiselectable="true" role="tablist">
+
+                                                                <?php
+                                                                $VIDEO_LESSONS = new VideoLessons(NULL);
+                                                                foreach ($VIDEO_LESSONS->getVideoLessonsBySubjectId($id) as $key => $videolessons) {
+                                                                    $key++;
+                                                                ?>
+                                                                    <!-- Question 3 -->
+                                                                    <div class="panel">
+                                                                        <div class="panel-heading" id="question-3" role="tab">
+                                                                            <a class="panel-title" aria-controls="answer-3" aria-expanded="false" data-toggle="collapse" href="#answer-3" data-parent="#accordion2">
+                                                                                <?php echo  $key ?>). <?php echo $videolessons['title'] ?>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="panel-collapse collapse" id="answer-3" aria-labelledby="question-3" role="tabpanel">
+                                                                            <div class="panel-body">
+                                                                                <h4> <?php echo $videolessons['url'] ?> </h4>
+
+                                                                                <p> <?php echo $videolessons['passcode'] ?></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="messages11" role="tabpanel">
@@ -167,27 +193,7 @@ $today = date('Y-m-d');
                                                 <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
                                             </div>
                                         </div>
-                                        <!-- <div class="tab-pane" id="setting11" role="tabpanel">
-                                            <div class="p-15">
-                                                <h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
-                                                <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
-                                                <h3>Donec vitae laoreet neque, id convallis ante.</h3>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="about11" role="tabpanel">
-                                            <div class="p-15">
-                                                <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
-                                                <h3>Donec vitae laoreet neque, id convallis ante.</h3>
-                                                <h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="contact11" role="tabpanel">
-                                            <div class="p-15">
-                                                <h3>Donec vitae laoreet neque, id convallis ante.</h3>
-                                                <p>Duis cursus eros lorem, pretium ornare purus tincidunt eleifend. Etiam quis justo vitae erat faucibus pharetra. Morbi in ullamcorper diam. Morbi lacinia, sem vitae dignissim cursus, massa nibh semper magna, nec pellentesque lorem nisl quis ex.</p>
-                                                <h4>Fusce porta eros a nisl varius, non molestie metus mollis. Pellentesque tincidunt ante sit amet ornare lacinia.</h4>
-                                            </div>
-                                        </div> -->
+
                                     </div>
                                 </div>
                                 <!-- /.box-body -->

@@ -4,10 +4,10 @@ include '../../../class/include.php';
 
 if ($_POST['option'] == 'delete') {
 
-    $ACCOMMODATION = new Accommodation($_POST['id']);
+    $ZOOM_CLASS = new ZoomClass($_POST['id']);
 
- 
-    $result = $ACCOMMODATION->delete();
+
+    $result = $ZOOM_CLASS->delete();
 
 
     if ($result) {

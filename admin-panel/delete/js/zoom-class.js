@@ -1,5 +1,7 @@
-$(document).ready(function () {
-    $('.delete-rent-car-company').click(function () {
+$(document).ready(function() {
+
+
+    $('.delete-zoom-class').click(function() {
 
         var id = $(this).attr("data-id");
 
@@ -11,14 +13,14 @@ $(document).ready(function () {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
-        }, function () {
+        }, function() {
 
             $.ajax({
-                url: "delete/ajax/rent-car-company.php",
+                url: "delete/ajax/zoom-class.php",
                 type: "POST",
-                data: {id: id, option: 'delete'},
+                data: { id: id, option: 'delete' },
                 dataType: "JSON",
-                success: function (jsonStr) {
+                success: function(jsonStr) {
                     if (jsonStr.status) {
 
                         swal({

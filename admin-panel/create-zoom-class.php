@@ -18,7 +18,7 @@ $SUBJECTS = new Subjects($id);
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>Aswanna.edu.lk - Create Zoom Online lessons  </title>
+	<title>Aswanna.edu.lk - Create Zoom Online lessons </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
@@ -136,7 +136,7 @@ $SUBJECTS = new Subjects($id);
 														$key++;
 													?>
 
-														<tr>
+														<tr id="div<?php echo $lessons['id'] ?>">
 															<td><?php echo $key; ?></td>
 															<td><?php echo $lessons['title']; ?></td>
 															<td><?php echo $lessons['start_date']; ?></td>
@@ -151,7 +151,10 @@ $SUBJECTS = new Subjects($id);
 																<a href="create-video-lessons.php?id=<?php echo $lessons['id'] ?>">
 																	<i class="  bx bx-book edit-btn edit-btn-sty"></i>
 																</a>
-
+																|
+																<a href="#" class="  delete-zoom-class" data-id="<?php echo $lessons['id']; ?>">
+																	<i class='bx bx-trash  delete-btn-sty'></i>
+																</a>
 															</td>
 
 														</tr>
@@ -186,7 +189,7 @@ $SUBJECTS = new Subjects($id);
 
 	<!-- Vendor JS -->
 	<script src="js/vendors.min.js"></script>
-  
+
 
 	<!-- EduAdmin App -->
 	<script src="js/template.js"></script>
@@ -197,6 +200,8 @@ $SUBJECTS = new Subjects($id);
 
 
 	<script src="ajax/js/zoom_class.js"></script>
+	<script src="delete/js/zoom-class.js"></script>
+
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
