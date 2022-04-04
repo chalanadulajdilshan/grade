@@ -4,9 +4,9 @@ include '../../../class/include.php';
  
 if ($_POST['option'] == 'delete') {
 
-    $OFFER= new Offer($_POST['id']);
+    $VIDEO_LESSONS = new VideoLessons($_POST['id']);
 
-    $result = $OFFER->delete();
+    $result = $VIDEO_LESSONS->delete();
 
     if ($result) {
         $data = array("status" => TRUE);

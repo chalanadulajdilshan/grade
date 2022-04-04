@@ -13,6 +13,7 @@ class VideoLessons
     public $title;
     public $subject_id;
     public $url;
+    public $passcode;
     public $queue;
 
     public function __construct($id)
@@ -26,9 +27,10 @@ class VideoLessons
             $result = mysqli_fetch_array($db->readQuery($query));
 
             $this->id = $result['id'];
-            $this->title = $result['title']; 
+            $this->title = $result['title'];
             $this->subject_id = $result['subject_id'];
             $this->url = $result['url'];
+            $this->passcode = $result['passcode'];
             $this->queue = $result['queue'];
         }
     }
@@ -38,10 +40,11 @@ class VideoLessons
 
 
 
-        $query = "INSERT INTO `video_lessons` (`title`,`subject_id`, `url`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `video_lessons` (`title`,`subject_id`, `url`,`passcode`,`queue`) VALUES  ('"
             . $this->title . "', '"
             . $this->subject_id . "', '"
             . $this->url . "', '"
+            . $this->passcode . "', '"
             . $this->queue . "')";
 
         $db = new Database();
@@ -77,6 +80,7 @@ class VideoLessons
 
         $query = "UPDATE  `video_lessons` SET "
             . "`title` ='" . $this->title . "',"
+            . "`passcode` ='" . $this->passcode . "',"
             . "`url` ='" . $this->url . "' "
             . "WHERE `id` = '" . $this->id . "'";
 

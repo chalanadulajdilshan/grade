@@ -5,7 +5,7 @@ include 'auth.php';
 
 $id = '';
 $id = $_GET['id'];
-$ZOOMCLASS = new ZoomClass($id);
+$SUBJECT = new Subjects($id);
 ?>
 <html lang="en">
 
@@ -48,28 +48,30 @@ $ZOOMCLASS = new ZoomClass($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Add <b> <?php echo $ZOOMCLASS->title ?> </b> - Video Lessons</h4>
+									<h4 class="box-title">Add <b> <?php echo $SUBJECT->name ?> </b> - Video Lessons</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
 
 										<div class="form-group">
-											<label>Lesson Titile:</label>
-											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php echo $ZOOMCLASS->title ?>" readonly>
+											<label>Subject Name:</label>
+											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php echo $SUBJECT->name ?>" readonly>
 										</div>
-
 										<div class="form-group">
-											<label>Video Title:</label>
-											<input type="text" class="form-control" placeholder="Enter Video Title" name="title" id="title" autocomplete="off">
+											<label>Lesson Title:</label>
+											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title" autocomplete="off">
 										</div>
-
 										<div class="form-group">
 											<label>Video URL:</label>
-											<input type="text" class="form-control" placeholder="Enter Video URL" name="url" id="url" autocomplete="off">
+											<input type="text" class="form-control" placeholder="Enter video url" name="url" id="url" autocomplete="off">
 										</div>
 
+										<div class="form-group">
+											<label>Video Passcode:</label>
+											<input type="text" class="form-control" placeholder="Enter video passcode" name="passcode" id="passcode" autocomplete="off">
+										</div>
 									</div>
-									<!-- /.box-body -->
+
 									<div class="box-footer">
 										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="create">Create</button>
 									</div>
@@ -100,24 +102,29 @@ $ZOOMCLASS = new ZoomClass($id);
 														<th>Id#</th>
 														<th>Title</th>
 														<th>Video URL</th>
+														<th>Passcode</th>
 														<th>Action</th>
 													</tr>
 												</thead>
 												<tbody>
 													<?php
 													$VIDEOLESSONS = new VideoLessons(null);
-													foreach ($VIDEOLESSONS->getVideoLessonsByLessonId($id) as $key => $video_lessons) {
+													foreach ($VIDEOLESSONS->getVideoLessonsBySubjectId($id) as $key => $video_lessons) {
 														$key++;
 													?>
 
-														<tr>
+														<tr  id="div<?php echo $video_lessons['id'] ?>" >
 															<td><?php echo $key; ?></td>
 															<td><?php echo $video_lessons['title']; ?></td>
 															<td><?php echo $video_lessons['url']; ?></td>
+															<td><?php echo $video_lessons['passcode']; ?></td>
 															<td>
 																<a href="edit-video-lessons.php?id=<?php echo $video_lessons['id']; ?>">
 																	<i class="  bx bx-edit-alt edit-btn edit-btn-sty"></i>
-																</a>
+																</a> |
+																<a href="#" class="  delete-video" data-id="<?php echo $video_lessons['id']; ?>">
+																	<i class='bx bx-trash  delete-btn-sty'></i>
+																</a> 
 															</td>
 
 														</tr>
@@ -128,13 +135,13 @@ $ZOOMCLASS = new ZoomClass($id);
 														<th>Id#</th>
 														<th>Title</th>
 														<th>Video URL</th>
+														<th>Passcode</th>
 														<th>Action</th>
 													</tr>
 												</tfoot>
 											</table>
 										</div>
 									</div>
-									<!-- /.box-body -->
 								</div>
 							</div>
 						</div>
@@ -161,53 +168,12 @@ $ZOOMCLASS = new ZoomClass($id);
 
 
 	<script src="ajax/js/video-lessons.js"></script>
+	<script src="delete/js/video.js"></script>
+
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		$(function() {
 
-			$(".datepicker").datepicker({
-				dateFormat: 'yy-mm-dd'
-			});
-
-		});
-
-
-		$('.timepicker').timepicker({
-			timeFormat: 'h:mm p',
-			interval: 30,
-			defaultTime: '11',
-			dynamic: false,
-			dropdown: true,
-			scrollbar: true
-		});
-	</script>
-	<script>
-		tinymce.init({
-			selector: "#description",
-			// ===========================================
-			// INCLUDE THE PLUGIN
-			// ===========================================
-
-			plugins: [
-				"advlist autolink lists link image charmap print preview anchor",
-				"searchreplace visualblocks code fullscreen",
-				"insertdatetime media table contextmenu paste"
-			],
-			// ===========================================
-			// PUT PLUGIN'S BUTTON on the toolbar
-			// ===========================================
-
-			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-			// ===========================================
-			// SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-			// ===========================================
-
-			relative_urls: false
-
-		});
-	</script>
 
 </body>
 

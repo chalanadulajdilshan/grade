@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $('.delete-offer').click(function () {
+$(document).ready(function() {
+    $('.delete-video').click(function() {
 
         var id = $(this).attr("data-id");
 
@@ -11,14 +11,17 @@ $(document).ready(function () {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, delete it!",
             closeOnConfirm: false
-        }, function () {
+        }, function() {
 
             $.ajax({
-                url: "delete/ajax/offer.php",
+                url: "delete/ajax/video.php",
                 type: "POST",
-                data: {id: id, option: 'delete'},
+                data: {
+                    id: id,
+                    option: 'delete'
+                },
                 dataType: "JSON",
-                success: function (jsonStr) {
+                success: function(jsonStr) {
                     if (jsonStr.status) {
 
                         swal({

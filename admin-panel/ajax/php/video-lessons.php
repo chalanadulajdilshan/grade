@@ -9,6 +9,7 @@ if (isset($_POST['create'])) {
     $VIDEO_LESSONS->title = $_POST['title'];
     $VIDEO_LESSONS->subject_id = $_POST['subject_id'];
     $VIDEO_LESSONS->url = $_POST['url'];
+    $VIDEO_LESSONS->passcode = $_POST['passcode'];
 
     $VIDEO_LESSONS->create();
 
@@ -24,7 +25,8 @@ if (isset($_POST['update'])) {
 
     $VIDEO_LESSONS->title = $_POST['title'];
     $VIDEO_LESSONS->url = $_POST['url'];
-
+    $VIDEO_LESSONS->passcode = $_POST['passcode'];
+    
     $VIDEO_LESSONS->update();
 
     $result = ["status" => 'success'];
