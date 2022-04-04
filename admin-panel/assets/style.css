@@ -30627,5 +30627,13 @@ img.online {
     padding: 8px;
 }
 
+.delete-btn-sty {
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding: 8px;
+}
+
 
 /*# sourceMappingURL=style.css.map */

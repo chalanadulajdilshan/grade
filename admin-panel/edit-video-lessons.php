@@ -54,20 +54,24 @@ $VIDEOLESSON = new VideoLessons($id);
 									<div class="box-body">
 
 										<div class="form-group">
-											<label>Lesson Titile:</label>
+											<label>Subject Name:</label>
 											<input type="text" class="form-control" placeholder="Enter Lesson title" value="<?php
-																															$LESSON = new ZoomClass($VIDEOLESSON->lesson_id);
-																															echo $LESSON->title ?>" readonly>
+																															$SUBJECT = new Subjects($VIDEOLESSON->subject_id);
+																															echo $SUBJECT->name ?>" readonly>
 										</div>
 
 										<div class="form-group">
-											<label>Video Title:</label>
-											<input type="text" class="form-control" placeholder="Enter Video Title" name="title" id="title" autocomplete="off" value="<?php echo $VIDEOLESSON->title ?>">
+											<label>Lesson Titile:</label>
+											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title" value="<?php echo $VIDEOLESSON->title  ?>">
 										</div>
-
 										<div class="form-group">
 											<label>Video URL:</label>
-											<input type="text" class="form-control" placeholder="Enter Video URL" name="url" id="url" autocomplete="off" value="<?php echo $VIDEOLESSON->url ?>">
+											<input type="text" class="form-control" placeholder="Enter Video url" name="url" id="url" autocomplete="off" value="<?php echo $VIDEOLESSON->url ?>">
+										</div>
+
+										<div class="form-group">
+											<label>Passcode:</label>
+											<input type="text" class="form-control" placeholder="Enter Video passcode" name="passcode"   autocomplete="off" value="<?php echo $VIDEOLESSON->passcode ?>">
 										</div>
 
 									</div>
@@ -106,50 +110,7 @@ $VIDEOLESSON = new VideoLessons($id);
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-		$(function() {
 
-			$(".datepicker").datepicker({
-				dateFormat: 'yy-mm-dd'
-			});
-
-		});
-
-
-		$('.timepicker').timepicker({
-			timeFormat: 'h:mm p',
-			interval: 30,
-			defaultTime: '11',
-			dynamic: false,
-			dropdown: true,
-			scrollbar: true
-		});
-	</script>
-	<script>
-		tinymce.init({
-			selector: "#description",
-			// ===========================================
-			// INCLUDE THE PLUGIN
-			// ===========================================
-
-			plugins: [
-				"advlist autolink lists link image charmap print preview anchor",
-				"searchreplace visualblocks code fullscreen",
-				"insertdatetime media table contextmenu paste"
-			],
-			// ===========================================
-			// PUT PLUGIN'S BUTTON on the toolbar
-			// ===========================================
-
-			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image jbimages",
-			// ===========================================
-			// SET RELATIVE_URLS to FALSE (This is required for images to display properly)
-			// ===========================================
-
-			relative_urls: false
-
-		});
-	</script>
 
 </body>
 

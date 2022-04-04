@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     //Create Class
-    $('#create').click(function (event) {
+    $('#create').click(function(event) {
         event.preventDefault();
- 
+
         if (!$('#title').val() || $('#title').val().length === 0) {
             swal({
                 title: "Error!",
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 timer: 1500,
                 showConfirmButton: false
             });
-        }   else {
+        } else {
 
             //start preloarder
             $('.someBlock').preloader();
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 data: formData,
                 async: false,
                 dataType: 'json',
-                success: function (result) {
+                success: function(result) {
 
                     //remove preloarder
                     $('.someBlock').preloader('remove');
@@ -43,8 +43,8 @@ $(document).ready(function () {
                         type: 'success',
                         timer: 2000,
                         showConfirmButton: false
-                    }, function () {
-                        setTimeout(function () {
+                    }, function() {
+                        setTimeout(function() {
                             window.location.reload();
                         }, 1500);
                     });
@@ -57,9 +57,9 @@ $(document).ready(function () {
     });
 
     //Update Class
-    $('#update').click(function (event) {
+    $('#update').click(function(event) {
         event.preventDefault();
- 
+
         if (!$('#title').val() || $('#title').val().length === 0) {
             swal({
                 title: "Error!",
@@ -76,7 +76,7 @@ $(document).ready(function () {
                 timer: 1500,
                 showConfirmButton: false
             });
-        }  else {
+        } else {
 
             //start preloarder
             $('.someBlock').preloader();
@@ -88,7 +88,7 @@ $(document).ready(function () {
                 data: formData,
                 async: false,
                 dataType: 'json',
-                success: function (result) {
+                success: function(result) {
 
                     //remove preloarder
                     $('.someBlock').preloader('remove');
@@ -99,8 +99,8 @@ $(document).ready(function () {
                         type: 'success',
                         timer: 2000,
                         showConfirmButton: false
-                    }, function () {
-                        setTimeout(function () {
+                    }, function() {
+                        setTimeout(function() {
                             window.location.reload();
                         }, 1500);
                     });
@@ -112,5 +112,5 @@ $(document).ready(function () {
         }
     });
 
-    
+
 });
