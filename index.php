@@ -43,7 +43,7 @@ include "./class/include.php";
          </div>
       </div>
    </section>
-   <section class="bg-transparent">
+   <!-- <section class="bg-transparent">
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -69,7 +69,7 @@ include "./class/include.php";
             </div>
          </div>
       </div>
-   </section>
+   </section> -->
    <section class="py-50" data-aos="fade-up">
       <div class="container">
          <div class="row">

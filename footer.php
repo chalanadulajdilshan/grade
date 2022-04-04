@@ -96,7 +96,7 @@
                 <div class="col-md-6 col-12 text-md-start text-center"> ©
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> <span class="text-white">EduLearn</span> All Rights Reserved.
+                    </script> <span class="text-white">Aswanna.edu.lk</span> All Rights Reserved.
                 </div>
                 <div class="col-md-6 mt-md-0 mt-20">
                     <div class="social-icons">
