@@ -325,7 +325,7 @@ include "./class/include.php";
       </div>
    </section>
 
-   <section class="py-50" data-aos="fade-up">
+   <!-- <section class="py-50" data-aos="fade-up">
       <div class="container">
          <div class="row align-items-center justify-content-between mb-5">
             <div class="col-md-5 col-sm-12" data-aos="fade-up">
@@ -431,7 +431,7 @@ include "./class/include.php";
             </div>
          </div>
       </div>
-   </section>
+   </section> -->
 
    <section class="bg-white py-50" data-aos="fade-up">
       <div class="container">

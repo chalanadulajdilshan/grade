@@ -63,7 +63,7 @@ $STUDENT = new Student($_SESSION['id'])
 
 										<div class="form-group">
 											<label>Month:</label>
-											<input type="text" class="form-control  " placeholder="Enter Start date" name="date" id="start_date" value="<?php echo $month ?>">
+											<input type="text" class="form-control" placeholder="Enter Start date" name="date" id="start_date" value="<?php echo $month ?>" readonly>
 										</div>
 
 										<div class="form-group">
