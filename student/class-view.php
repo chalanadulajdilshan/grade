@@ -52,7 +52,7 @@ $today = date('Y-m-d');
                             <div class="d-inline-block align-items-center">
                                 <nav>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                                        <li class="breadcrumb-item"><a href="#">  <i class='bx bx-chevron-right'></i></a></li>
                                         <li class="breadcrumb-item" aria-current="page">Home</li>
                                         <li class="breadcrumb-item active" aria-current="page">Manage Class</li>
                                     </ol>
@@ -79,7 +79,7 @@ $today = date('Y-m-d');
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs nav-fill" role="tablist">
                                         <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home11" role="tab"><span><i class="ion-home"></i></span> <span class="hidden-xs-down ml-15">Online Class</span></a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">Video Lessons</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile11" role="tab"><span>  <i class='bx bx-chevron-right'></i></span> <span class="hidden-xs-down ml-15">Video Lessons</span></a> </li>
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages11" role="tab"><span><i class="ion-email"></i></span> <span class="hidden-xs-down ml-15">TUtorials</span></a> </li> -->
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#setting11" role="tab"><span><i class="ion-settings"></i></span> <span class="hidden-xs-down ml-15">Setting</span></a> </li> -->
                                         <!-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#about11" role="tab"><span><i class="ion-person"></i></span> <span class="hidden-xs-down ml-15">About</span></a> </li> -->
