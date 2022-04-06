@@ -1,344 +1,322 @@
-<!DOCTYPE html>
 <?php
 include '../../class/include.php';
-// include 'auth.php'; 
-?>
-<html lang="en">
+include '../auth.php';
 
+
+$id = '';
+$id = $_GET['id'];
+
+$zm = '';
+$zm = $_GET['zm'];
+
+$SUBJECT = new Subjects($id);
+$ZOOM_CLASS = new ZoomClass($zm);
+
+$STUDENT = new Student($_SESSION['id']);
+
+?>
+<html>
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../assetsimages/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="Frest admin is super flexible, powerful.">
+    <meta name="keywords" content="admin template, responsive admin template, web app">
+    <meta name="author" content="PIXINVENT">
+    <title>Zoom Class - aswanna.edu.lk</title>
 
-    <title>aswannaCollage.lk - Dashboard</title>
+    <!-- END: Page CSS-->
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="../assets/vendors_css.css">
-
+    <link href="../assets/jquery.formValid.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/preloarder/preloader.css" rel="stylesheet" type="text/css" />
     <!-- Style-->
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/skin_color.css">
 
+    <style>
+        .sdk-select {
+            height: 34px;
+            border-radius: 4px;
+        }
+
+        .websdktest button {
+            float: right;
+            margin-left: 5px;
+        }
+
+        #nav-tool {
+            margin-bottom: 0px;
+        }
+
+        #show-test-tool {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            display: block;
+            z-index: 99999;
+        }
+
+
+
+
+        .message-item {
+
+            max-width: 100% !important;
+            background-color: transparent !important;
+        }
+
+        #websdk-iframe {
+            width: 700px;
+            height: 500px;
+            border: 1px;
+            border-color: red;
+            border-style: dashed;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            margin: 0;
+        }
+
+        #zmmtg-root {
+            width: 100%;
+            height: 100%;
+            position: relative !important;
+            top: 0;
+            left: 0;
+            background-color: transparent !important;
+        }
+
+        .tooltipcopy {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltipcopy .tooltipcopytext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 120%;
+            left: 50%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltipcopy .tooltipcopytext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            right: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltipcopy:hover .tooltipcopytext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .main-add-btn:hover {
+            cursor: pointer;
+        }
+
+        .paragraph-info {
+            text-align: justify;
+        }
+
+        @media (min-width:566px) and (max-width:1069px) {
+
+            .paragraph-info {
+                max-width: 55%;
+            }
+        }
+
+        html,
+        body {
+            min-width: min-content !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            line-height: 1.4 !important;
+            color: #727E8C !important;
+        }
+
+        #__vconsole {
+            display: none
+        }
+    </style>
+
 </head>
+<!-- BEGIN: Body-->
 
-<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+<body class="vertical-layout vertical-menu-modern semi-dark-layout 2-columns  navbar-sticky footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="semi-dark-layout">
 
-    <div class="wrapper">
-        <div id="loader"></div>
+    <?php include '../header.php' ?>
 
-        <?php include '../header.php' ?>
-
-        <!-- Content Wrapper. Contains page content -->
+    <div class="app-content content">
         <div class="content-wrapper">
-            <div class="container-full">
-</div>
+            <section id="content-types">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-xl-8 col-md-8 col-sm-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="p-40">
+
+
+                                        <form method="post" class="demo-form-wrapper card ">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="display_name" id="display_name" value="" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" value="tes" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" value="tes" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" value="test" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="text" value="test" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-group" style="display: none">
+                                                    <input type="text" name="meeting_number" id="meeting_number" value="" maxLength="200" placeholder="Meeting Number" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group" style="display: none">
+                                                    <input type="text" name="meeting_pwd" id="meeting_pwd" value="" maxLength="32" placeholder="Meeting Password" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: none">
+                                                <div class="form-group">
+                                                    <input type="text" name="meeting_email" id="meeting_email" value="" maxLength="32" placeholder="Email option" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: none">
+                                                <div class="form-group">
+                                                    <select id="meeting_role" class="sdk-select">
+                                                        <option value=0 selected="true">Attendee</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: none">
+                                                <div class="form-group  ">
+                                                    <select id="meeting_china" class="sdk-select">
+                                                        <option value=0>Global</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12" style="display: none">
+                                                <div class="form-group  ">
+                                                    <select id="meeting_lang" class="sdk-select">
+                                                        <option value="en-US">English</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <div class="ml-auto">
+                                                            <input type="hidden" value="" id="copy_link_value" />
+                                                            <button type="submit" class="btn btn-primary btn-block invoice-send-btn" id="join_meeting">Join The Online Lesson</button>
+                                                            <button type="submit" class="btn btn-primary" style="display: none" id="clear_all">Clear</button>
+
+                                                        </div>
+
+                                                        <!-- Echo your System parameters here  name = student name , video = meeting id , password = meeting password -->
+                                                        <input type="hidden" value="<?php echo $STUDENT->full_name ?>" id="name">
+                                                        <input type="hidden" value="7082513522" id="video">
+                                                        <input type="hidden" value="2021050611" id="password">
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </section>
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar">
-
-            <div class="rpanel-title"><span class="pull-right btn btn-circle btn-danger"><i class="ion ion-close text-white" data-toggle="control-sidebar"></i></span> </div>
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs control-sidebar-tabs">
-                <li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab" class="active"><i class="mdi mdi-message-text"></i></a></li>
-                <li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="mdi mdi-playlist-check"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane active" id="control-sidebar-home-tab">
-                    <div class="flexbox">
-                        <a href="javascript:void(0)" class="text-grey">
-                            <i class="ti-more"></i>
-                        </a>
-                        <p>Users</p>
-                        <a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
-                    </div>
-                    <div class="lookup lookup-sm lookup-right d-none d-lg-block">
-                        <input type="text" name="s" placeholder="Search" class="w-p100">
-                    </div>
-                    <div class="media-list media-list-hover mt-20">
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-success" href="#">
-                                <img src="../images/avatar/1.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Tyler</strong></a>
-                                </p>
-                                <p>Praesent tristique diam...</p>
-                                <span>Just now</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-danger" href="#">
-                                <img src="../images/avatar/2.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Luke</strong></a>
-                                </p>
-                                <p>Cras tempor diam ...</p>
-                                <span>33 min ago</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-warning" href="#">
-                                <img src="../images/avatar/3.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Evan</strong></a>
-                                </p>
-                                <p>In posuere tortor vel...</p>
-                                <span>42 min ago</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-primary" href="#">
-                                <img src="../images/avatar/4.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Evan</strong></a>
-                                </p>
-                                <p>In posuere tortor vel...</p>
-                                <span>42 min ago</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-success" href="#">
-                                <img src="../images/avatar/1.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Tyler</strong></a>
-                                </p>
-                                <p>Praesent tristique diam...</p>
-                                <span>Just now</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-danger" href="#">
-                                <img src="../images/avatar/2.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Luke</strong></a>
-                                </p>
-                                <p>Cras tempor diam ...</p>
-                                <span>33 min ago</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-warning" href="#">
-                                <img src="../images/avatar/3.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Evan</strong></a>
-                                </p>
-                                <p>In posuere tortor vel...</p>
-                                <span>42 min ago</span>
-                            </div>
-                        </div>
-
-                        <div class="media py-10 px-0">
-                            <a class="avatar avatar-lg status-primary" href="#">
-                                <img src="../images/avatar/4.jpg" alt="...">
-                            </a>
-                            <div class="media-body">
-                                <p class="font-size-16">
-                                    <a class="hover-primary" href="#"><strong>Evan</strong></a>
-                                </p>
-                                <p>In posuere tortor vel...</p>
-                                <span>42 min ago</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <div class="flexbox">
-                        <a href="javascript:void(0)" class="text-grey">
-                            <i class="ti-more"></i>
-                        </a>
-                        <p>Todo List</p>
-                        <a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
-                    </div>
-                    <ul class="todo-list mt-20">
-                        <li class="py-15 px-5 by-1">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_1" class="filled-in">
-                            <label for="basic_checkbox_1" class="mb-0 h-15"></label>
-                            <!-- todo text -->
-                            <span class="text-line">Nulla vitae purus</span>
-                            <!-- Emphasis label -->
-                            <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                            <!-- General tools such as edit or delete-->
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_2" class="filled-in">
-                            <label for="basic_checkbox_2" class="mb-0 h-15"></label>
-                            <span class="text-line">Phasellus interdum</span>
-                            <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5 by-1">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_3" class="filled-in">
-                            <label for="basic_checkbox_3" class="mb-0 h-15"></label>
-                            <span class="text-line">Quisque sodales</span>
-                            <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_4" class="filled-in">
-                            <label for="basic_checkbox_4" class="mb-0 h-15"></label>
-                            <span class="text-line">Proin nec mi porta</span>
-                            <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5 by-1">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_5" class="filled-in">
-                            <label for="basic_checkbox_5" class="mb-0 h-15"></label>
-                            <span class="text-line">Maecenas scelerisque</span>
-                            <small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_6" class="filled-in">
-                            <label for="basic_checkbox_6" class="mb-0 h-15"></label>
-                            <span class="text-line">Vivamus nec orci</span>
-                            <small class="badge bg-info"><i class="fa fa-clock-o"></i> 1 month</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5 by-1">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_7" class="filled-in">
-                            <label for="basic_checkbox_7" class="mb-0 h-15"></label>
-                            <!-- todo text -->
-                            <span class="text-line">Nulla vitae purus</span>
-                            <!-- Emphasis label -->
-                            <small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                            <!-- General tools such as edit or delete-->
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_8" class="filled-in">
-                            <label for="basic_checkbox_8" class="mb-0 h-15"></label>
-                            <span class="text-line">Phasellus interdum</span>
-                            <small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5 by-1">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_9" class="filled-in">
-                            <label for="basic_checkbox_9" class="mb-0 h-15"></label>
-                            <span class="text-line">Quisque sodales</span>
-                            <small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li class="py-15 px-5">
-                            <!-- checkbox -->
-                            <input type="checkbox" id="basic_checkbox_10" class="filled-in">
-                            <label for="basic_checkbox_10" class="mb-0 h-15"></label>
-                            <span class="text-line">Proin nec mi porta</span>
-                            <small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-
     </div>
-    <!-- ./wrapper -->
-
-    <!-- ./side demo panel -->
-    <div class="sticky-toolbar">
-        <a href="#" data-toggle="tooltip" data-placement="left" title="Buy Now" class="waves-effect waves-light btn btn-success btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Money"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-        <a href="https://themeforest.net/user/multipurposethemes/portfolio" data-toggle="tooltip" data-placement="left" title="Portfolio" class="waves-effect waves-light btn btn-danger btn-flat mb-5 btn-sm" target="_blank">
-            <span class="icon-Image"></span>
-        </a>
-        <a id="chat-popup" href="#" data-toggle="tooltip" data-placement="left" title="Live Chat" class="waves-effect waves-light btn btn-warning btn-flat btn-sm">
-            <span class="icon-Group-chat"><span class="path1"></span><span class="path2"></span></span>
-        </a>
-    </div>
-    <!-- Sidebar -->
 
 
-    <!-- Page Content overlay -->
-
-
-    <!-- Vendor JS -->
     <script src="../js/vendors.min.js"></script>
     <script src="../js/pages/chat-popup.js"></script>
     <script src="../assets/icons/feather-icons/feather.min.js"></script>
 
-    <script src="../assets/vendor_components/moment/min/moment.min.js"></script>
-    <script src="../assets/vendor_components/fullcalendar/fullcalendar.js"></script>
+    <script src="../js/jquery.preloader.min.js"></script>
+    <script src="../js/jquery.formValid.js" type="text/javascript"></script>
+    <script src="../assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
 
-    <!-- EduAdmin App -->
-    <script src="../js/template.js"></script>
-    <script src="../js/pages/calendar.js"></script>
+    <!-- Zoom Code Segments -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/react/umd/react.production.min.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="node_modules/redux/dist/redux.min.js"></script>
+    <script src="node_modules/redux-thunk/dist/redux-thunk.min.js"></script>
+    <script src="node_modules/lodash/lodash.min.js"></script>
+    <script src="https://source.zoom.us/zoom-meeting-1.8.0.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="js/tool.js"></script>
+    <script src="js/vconsole.min.js"></script>
+    <script src="js/index.js"></script>
+    <!--End Zoom Code Segments -->
+
+
+    <script>
+        $(document).ready(function() {
+
+            var name = $("#name").val();
+            var video = $("#video").val();
+            var password = $("#password").val();
+
+
+            $("#display_name").val(name);
+            $("#meeting_number").val(video);
+            $("#meeting_pwd").val(password);
+        });
+    </script>
+
 
 </body>
 

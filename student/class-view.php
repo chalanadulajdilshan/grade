@@ -182,8 +182,6 @@ $today = date('Y-m-d');
                                                         </div>
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                         </div>
                                         <div class="tab-pane" id="messages11" role="tabpanel">
@@ -195,21 +193,11 @@ $today = date('Y-m-d');
                                         </div>
 
                                     </div>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                        <!-- /.col -->
-
-
-
-                    </div>
-                    <!-- /.row -->
-                    <!-- END tabs -->
-
-                </section>
-                <!-- /.content -->
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </section> 
             </div>
         </div>
 
@@ -261,7 +249,7 @@ $today = date('Y-m-d');
                 'now': "<?= strtotime("now") ?>",
             }, function() {
                 console.log('finished');
-                location.href = './zoom/'
+                location.href = './zoom?id=<?= $id ?>&&zm=<?= $zoom_class['id']?>'
             });
         });
     </script>
