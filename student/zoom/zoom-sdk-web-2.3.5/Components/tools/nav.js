@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 window.addEventListener('DOMContentLoaded', function(event) {
   console.log('DOM fully loaded and parsed');
   websdkready();
@@ -6,29 +7,22 @@ window.addEventListener('DOMContentLoaded', function(event) {
 function websdkready() {
   var testTool = window.testTool;
   if (testTool.isMobileDevice()) {
-    vConsole = new VConsole();
+    // eslint-disable-next-line no-undef
+    var vConsole = new VConsole();
   }
   console.log("checkSystemRequirements");
-  console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
+  // console.log(JSON.stringify(ZoomMtgEmbedded.checkSystemRequirements()));
 
-  // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
-  // if (!china) ZoomMtg.setZoomJSLib('https://source.zoom.us/2.3.5/lib', '/av'); // CDN version default
-  // else ZoomMtg.setZoomJSLib('https://jssdk.zoomus.cn/2.3.5/lib', '/av'); // china cdn option
-  // ZoomMtg.setZoomJSLib('http://localhost:9999/node_modules/@zoomus/websdk/dist/lib', '/av'); // Local version default, Angular Project change to use cdn version
-  ZoomMtg.preLoadWasm(); // pre download wasm file to save time.
+  var API_KEY = "YOUR_API_KEY";
 
-  var SDK_KEY = "b4r7r9dLmedPZ1sqyVXg3JtcgjFn8joLfrb3";
   /**
-   * NEVER PUT YOUR ACTUAL SDK SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
-   * The below generateSignature should be done server side as not to expose your SDK SECRET in public
+   * NEVER PUT YOUR ACTUAL API SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
+   * The below generateSignature should be done server side as not to expose your api secret in public
    * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
    */
-  var SDK_SECRET = "LL0oSMqqkauizqHHXmqY403pPwkfe6UYrqL2";
-
+  var API_SECRET = "YOUR_API_SECRET";
   // some help code, remember mn, pwd, lang to cookie, and autofill.
   document.getElementById("display_name").value =
-    "CDN" +
-    ZoomMtg.getJSSDKVersion()[0] +
     testTool.detectOS() +
     "#" +
     testTool.getBrowserInfo();
@@ -82,7 +76,7 @@ function websdkready() {
     document.getElementById("meeting_pwd").value = "";
     document.getElementById("meeting_lang").value = "en-US";
     document.getElementById("meeting_role").value = 0;
-    window.location.href = "./index.php";
+    window.location.href = "/index.html";
   });
 
   // click join meeting button
@@ -100,18 +94,25 @@ function websdkready() {
       testTool.setCookie("meeting_number", meetingConfig.mn);
       testTool.setCookie("meeting_pwd", meetingConfig.pwd);
 
-      var signature = ZoomMtg.generateSDKSignature({
+      // generateSignature define in token-tool.js
+      var signature = generateSignature({
         meetingNumber: meetingConfig.mn,
-        sdkKey: SDK_KEY,
-        sdkSecret: SDK_SECRET,
+        apiKey: API_KEY,
+        apiSecret: API_SECRET,
         role: meetingConfig.role,
         success: function (res) {
-          console.log(res.result);
-          meetingConfig.signature = res.result;
-          meetingConfig.sdkKey = SDK_KEY;
-          var joinUrl = "./meeting.php?" + testTool.serialize(meetingConfig);
+          console.log(res);
+          meetingConfig.signature = res;
+          meetingConfig.apiKey = API_KEY;
+          if (document.getElementById('demoType').value === 'cdn') {
+          var joinUrl = "/cdn.html?" + testTool.serialize(meetingConfig);
           console.log(joinUrl);
           window.open(joinUrl, "_blank");
+          } else {
+            var joinUrl = "/index.html?" + testTool.serialize(meetingConfig);
+            console.log(joinUrl);
+            window.open(joinUrl, "_blank");
+          }
         },
       });
     });
@@ -132,21 +133,31 @@ function websdkready() {
       alert("Meeting number or username is empty");
       return false;
     }
-    var signature = ZoomMtg.generateSDKSignature({
+    var signature = generateSignature({
       meetingNumber: meetingConfig.mn,
-      sdkKey: SDK_KEY,
-      sdkSecret: SDK_SECRET,
+      apiKey: API_KEY,
+      apiSecret: API_SECRET,
       role: meetingConfig.role,
       success: function (res) {
         console.log(res.result);
         meetingConfig.signature = res.result;
-        meetingConfig.sdkKey = SDK_KEY;
-        var joinUrl =
+        meetingConfig.apiKey = API_KEY;
+        if (document.getElementById('demoType').value === 'cdn') {
+          var joinUrl =
           testTool.getCurrentDomain() +
-          "./meeting.php?" +
+          "/cdn.html?" +
           testTool.serialize(meetingConfig);
-        document.getElementById('copy_link_value').setAttribute('link', joinUrl);
-        copyToClipboard('copy_link_value');
+          document.getElementById('copy_link_value').setAttribute('link', joinUrl);
+          copyToClipboard('copy_link_value');
+        } else{
+          var joinUrl =
+          testTool.getCurrentDomain() +
+          "/index.html?" +
+          testTool.serialize(meetingConfig);
+          document.getElementById('copy_link_value').setAttribute('link', joinUrl);
+          copyToClipboard('copy_link_value');
+        }
+        
         
       },
     });
