@@ -17,13 +17,13 @@ function websdkready() {
   // ZoomMtg.setZoomJSLib('http://localhost:9999/node_modules/@zoomus/websdk/dist/lib', '/av'); // Local version default, Angular Project change to use cdn version
   ZoomMtg.preLoadWasm(); // pre download wasm file to save time.
 
-  var SDK_KEY = "b4r7r9dLmedPZ1sqyVXg3JtcgjFn8joLfrb3";
+  var SDK_KEY = "YOUR_SDK_KEY";
   /**
    * NEVER PUT YOUR ACTUAL SDK SECRET IN CLIENT SIDE CODE, THIS IS JUST FOR QUICK PROTOTYPING
    * The below generateSignature should be done server side as not to expose your SDK SECRET in public
    * You can find an eaxmple in here: https://marketplace.zoom.us/docs/sdk/native-sdks/web/essential/signature
    */
-  var SDK_SECRET = "LL0oSMqqkauizqHHXmqY403pPwkfe6UYrqL2";
+  var SDK_SECRET = "YOUR_SDK_SECRET";
 
   // some help code, remember mn, pwd, lang to cookie, and autofill.
   document.getElementById("display_name").value =
@@ -82,7 +82,7 @@ function websdkready() {
     document.getElementById("meeting_pwd").value = "";
     document.getElementById("meeting_lang").value = "en-US";
     document.getElementById("meeting_role").value = 0;
-    window.location.href = "./index.php";
+    window.location.href = "/index.html";
   });
 
   // click join meeting button
@@ -109,7 +109,7 @@ function websdkready() {
           console.log(res.result);
           meetingConfig.signature = res.result;
           meetingConfig.sdkKey = SDK_KEY;
-          var joinUrl = "./meeting.php?" + testTool.serialize(meetingConfig);
+          var joinUrl = "/meeting.html?" + testTool.serialize(meetingConfig);
           console.log(joinUrl);
           window.open(joinUrl, "_blank");
         },
@@ -143,7 +143,7 @@ function websdkready() {
         meetingConfig.sdkKey = SDK_KEY;
         var joinUrl =
           testTool.getCurrentDomain() +
-          "./meeting.php?" +
+          "/meeting.html?" +
           testTool.serialize(meetingConfig);
         document.getElementById('copy_link_value').setAttribute('link', joinUrl);
         copyToClipboard('copy_link_value');

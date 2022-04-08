@@ -181,7 +181,7 @@ $STUDENT = new Student($_SESSION['id']);
                                         <form method="post" class="demo-form-wrapper card ">
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <input type="text" name="display_name" id="display_name" value="" maxLength="100" placeholder="Name" class="form-control" required readonly="">
+                                                    <input type="text" name="display_name" id="display_name" value="<?= $STUDENT->full_name ?>" maxLength="100" placeholder="Name" class="form-control" required readonly="">
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -207,12 +207,12 @@ $STUDENT = new Student($_SESSION['id']);
 
                                             <div class="col-12">
                                                 <div class="form-group" style="display: none">
-                                                    <input type="text" name="meeting_number" id="meeting_number" value="" maxLength="200" placeholder="Meeting Number" class="form-control" required>
+                                                    <input type="text" name="meeting_number" id="meeting_number" value="<?= $ZOOM_CLASS->meeting_id ?>" maxLength="200" placeholder="Meeting Number" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group" style="display: none">
-                                                    <input type="text" name="meeting_pwd" id="meeting_pwd" value="" maxLength="32" placeholder="Meeting Password" class="form-control">
+                                                    <input type="text" name="meeting_pwd" id="meeting_pwd" value="<?= $ZOOM_CLASS->password ?>" maxLength="32" placeholder="Meeting Password" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-12" style="display: none">
@@ -256,9 +256,9 @@ $STUDENT = new Student($_SESSION['id']);
 
                                                         <!-- Echo your System parameters here  name = student name , video = meeting id , password = meeting password -->
                                                         <input type="hidden" value="<?php echo $STUDENT->full_name ?>" id="name">
-                                                        <input type="hidden" value="7082513522" id="video">
-                                                        <input type="hidden" value="2021050611" id="password">
-
+                                                        <input type="hidden" value="<?= $ZOOM_CLASS->meeting_id ?>" id="video">
+                                                        <input type="hidden" value="<?= $ZOOM_CLASS->password ?>" id="password">
+ 
 
                                                     </div>
                                                 </div>
@@ -286,20 +286,21 @@ $STUDENT = new Student($_SESSION['id']);
     <script src="../js/jquery.formValid.js" type="text/javascript"></script>
     <script src="../assets/sweetalert/sweetalert.min.js" type="text/javascript"></script>
 
-    <!-- Zoom Code Segments -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/react/umd/react.production.min.js"></script>
-    <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
-    <script src="node_modules/redux/dist/redux.min.js"></script>
-    <script src="node_modules/redux-thunk/dist/redux-thunk.min.js"></script>
-    <script src="node_modules/lodash/lodash.min.js"></script>
-    <script src="https://source.zoom.us/zoom-meeting-1.8.0.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <script src="https://source.zoom.us/2.3.5/lib/vendor/react.min.js"></script>
+    <script src="https://source.zoom.us/2.3.5/lib/vendor/react-dom.min.js"></script>
+    <script src="https://source.zoom.us/2.3.5/lib/vendor/redux.min.js"></script>
+    <script src="https://source.zoom.us/2.3.5/lib/vendor/redux-thunk.min.js"></script>
+    <script src="https://source.zoom.us/2.3.5/lib/vendor/lodash.min.js"></script>
+    <script src="https://source.zoom.us/zoom-meeting-2.3.5.min.js"></script>
     <script src="js/tool.js"></script>
     <script src="js/vconsole.min.js"></script>
     <script src="js/index.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<!-- 
+    <script src="js/tool.js"></script>
+    <script src="js/vconsole.min.js"></script>
+    <script src="js/index.js"></script> -->
     <!--End Zoom Code Segments -->
 
 

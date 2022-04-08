@@ -28,7 +28,7 @@ function websdkready() {
       );
     })(),
     passWord: tmpArgs.pwd,
-    leaveUrl: "./index.php",
+    leaveUrl: "/index.html",
     role: parseInt(tmpArgs.role, 10),
     userEmail: (function () {
       try {
