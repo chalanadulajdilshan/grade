@@ -178,7 +178,7 @@ $STUDENT = new Student($_SESSION['id']);
                                     <div class="p-40">
 
 
-                                        <form method="post" class="demo-form-wrapper card ">
+                                        <form method="post" class="demo-form-wrapper   ">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <input type="text" name="display_name" id="display_name" value="<?= $STUDENT->full_name ?>" maxLength="100" placeholder="Name" class="form-control" required readonly="">
@@ -258,7 +258,15 @@ $STUDENT = new Student($_SESSION['id']);
                                                         <input type="hidden" value="<?php echo $STUDENT->full_name ?>" id="name">
                                                         <input type="hidden" value="<?= $ZOOM_CLASS->meeting_id ?>" id="video">
                                                         <input type="hidden" value="<?= $ZOOM_CLASS->password ?>" id="password">
- 
+                                                        <!-- Zoom SDK -->
+
+                                                        <?php
+                                                        $USER = new User(NULL);
+                                                        $user_id = $USER->getUserBySubjectId($id);
+                                                        $NEW_USER = new User($user_id);
+                                                        ?>
+                                                        <input type="hidden" id="sdk_key" value="<?= $NEW_USER->sdk_key ?>">
+                                                        <input type="hidden" id="sdk_secret" value="<?= $NEW_USER->sdk_secret ?>">
 
                                                     </div>
                                                 </div>
@@ -297,7 +305,7 @@ $STUDENT = new Student($_SESSION['id']);
     <script src="js/index.js"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<!-- 
+    <!-- 
     <script src="js/tool.js"></script>
     <script src="js/vconsole.min.js"></script>
     <script src="js/index.js"></script> -->

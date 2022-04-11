@@ -120,34 +120,6 @@ class HomeWorkLesson {
         return $db->readQuery($query);
     }
 
-    public function deletePhotos() {
-
-
-
-        $PRODUCT_PHOTO = new ProductPhoto(NULL);
-
-
-
-        $allPhotos = $PRODUCT_PHOTO->getProductPhotosById($this->id);
-
-
-
-        foreach ($allPhotos as $photo) {
-
-
-
-            $IMG = $PRODUCT_PHOTO->url = $photo["url"];
-
-            unlink(Helper::getSitePath() . "./upload/home_work_lesson/gallery/" . $IMG);
-
-            unlink(Helper::getSitePath() . "./upload/home_work_lesson/gallery/thumb/" . $IMG);
-
-
-
-            $PRODUCT_PHOTO->id = $photo["id"];
-
-            $PRODUCT_PHOTO->delete();
-        }
-    }
+     
 
 }

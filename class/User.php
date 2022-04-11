@@ -14,14 +14,20 @@ class User
     public $authToken;
     public $lastLogin;
     public $username;
+    public $sdk_key;
+    public $sdk_secret;
     public $resetCode;
+    public $subject;
     private $password;
     public function __construct($id)
     {
         if ($id) {
-            $query = "SELECT `id`,`name`,`image_name`,`email`,`createdAt`,`isActive`,`authToken`,`lastLogin`,`username`,`resetcode` FROM `user` WHERE `id`=" . $id;
+            $query = "SELECT `subject`,`sdk_secret`,`sdk_key`, `id`,`name`,`image_name`,`email`,`createdAt`,`isActive`,`authToken`,`lastLogin`,`username`,`resetcode` FROM `user` WHERE `id`=" . $id;
             $db = new Database();
             $result = mysqli_fetch_array($db->readQuery($query));
+
+            $this->subject = $result['subject'];
+
             $this->id = $result['id'];
             $this->name = $result['name'];
             $this->email = $result['email'];
@@ -31,7 +37,10 @@ class User
             $this->lastLogin = $result['lastLogin'];
             $this->username = $result['username'];
             $this->authToken = $result['authToken'];
+            $this->sdk_secret = $result['sdk_secret'];
+            $this->sdk_key = $result['sdk_key'];
             $this->resetCode = $result['resetcode'];
+
             return $result;
         }
     }
@@ -129,7 +138,17 @@ class User
     }
     public function update()
     {
-        $query = "UPDATE  `user` SET "                . "`name` ='" . $this->name . "', "                . "`username` ='" . $this->username . "', "                . "`email` ='" . $this->email . "', "                . "`isActive` ='" . $this->isActive . "' "                . "WHERE `id` = '" . $this->id . "'";
+        $query = "UPDATE  `user` SET "
+            . "`subject` ='" . $this->subject . "', "
+            . "`name` ='" . $this->name . "', "
+            . "`username` ='" . $this->username . "', "
+            . "`email` ='" . $this->email . "', "
+            . "`sdk_key` ='" . $this->sdk_key . "', "
+            . "`sdk_secret` ='" . $this->sdk_secret . "', "
+            . "`subject` ='" . $this->subject . "', "
+            . "`isActive` ='" . $this->isActive . "' "
+            . "WHERE `id` = '" . $this->id . "'";
+
         $db = new Database();
         $result = $db->readQuery($query);
         if ($result) {
@@ -231,5 +250,15 @@ class User
         } else {
             return FALSE;
         }
+    }
+
+    public function getUserBySubjectId($id)
+    {
+
+        $query = "SELECT `id` FROM `user` WHERE `subject`= '" . $id . "'";
+        $db = new Database();
+        $result = mysqli_fetch_assoc($db->readQuery($query));
+
+        return $result['id'];
     }
 }
