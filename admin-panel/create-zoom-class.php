@@ -82,13 +82,7 @@ $SUBJECTS = new Subjects($id);
 										<div class="form-group">
 											<label>Password:</label>
 											<input type="text" class="form-control" placeholder="Enter Password" name="password" id="password" autocomplete="off">
-										</div>
-
-										<div class="form-group">
-											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control" autocomplete="off"></textarea>
-
-										</div>
+										</div> 
 
 									</div>
 									<!-- /.box-body -->
@@ -145,9 +139,10 @@ $SUBJECTS = new Subjects($id);
 															<td><?php echo $lessons['meeting_id']; ?></td>
 															<td><?php echo $lessons['password']; ?></td>
 															<td>
-																<a href="edit-lessons.php?id=<?php echo $lessons['id']; ?>">
+																<a href="edit-zoom-class.php?id=<?php echo $lessons['id']; ?>">
 																	<i class="  bx bx-edit-alt edit-btn edit-btn-sty"></i>
 																</a>
+																|
 																<a href="create-video-lessons.php?id=<?php echo $lessons['id'] ?>">
 																	<i class="  bx bx-book edit-btn edit-btn-sty"></i>
 																</a>
@@ -199,7 +194,7 @@ $SUBJECTS = new Subjects($id);
 	<script src="js/pages/data-table.js"></script>
 
 
-	<script src="ajax/js/zoom_class.js"></script>
+	<script src="ajax/js/zoom-class.js"></script>
 	<script src="delete/js/zoom-class.js"></script>
 
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>

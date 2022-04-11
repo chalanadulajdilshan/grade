@@ -117,7 +117,7 @@ class Subjects
 
         return $array_res;
     }
-
+ 
     public function update()
     {
 

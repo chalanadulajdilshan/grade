@@ -5,7 +5,7 @@ include 'auth.php';
 
 $id = '';
 $id = $_GET['id'];
-$LESSONS = new Lessons($id);
+$ZOOM_CLASS = new ZoomClass($id);
 ?>
 <html lang="en">
 
@@ -17,7 +17,7 @@ $LESSONS = new Lessons($id);
 	<meta name="author" content="">
 	<link rel="icon" href="../images/favicon.ico">
 
-	<title>Aswanna.edu.lk - Edit lessons </title>
+	<title>Aswanna.edu.lk - Edit Zoom class </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="assets/vendors_css.css">
@@ -51,50 +51,45 @@ $LESSONS = new Lessons($id);
 						<div class="col-lg-12 col-12">
 							<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Edit <span class="text-danger"><?php echo $LESSONS->title ?> </span> - Lessons</h4>
+									<h4 class="box-title">Edit <span class="text-danger"><?php echo $ZOOM_CLASS->title ?> </span> - Lessons</h4>
 								</div>
 								<form id="form-data">
 									<div class="box-body">
 
 										<div class="form-group">
 											<label>Lesson Titile:</label>
-											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title" value="<?php echo $LESSONS->title ?>">
+											<input type="text" class="form-control" placeholder="Enter Lesson title" name="title" id="title" autocomplete="off" value="<?php echo $ZOOM_CLASS->title ?>">
 										</div>
 
 										<div class="form-group">
 											<label>Start Date:</label>
-											<input type="text" class="form-control datepicker" placeholder="Enter Start date" name="start_date" id="start_date" value="<?php echo $LESSONS->start_date ?>">
+											<input type="text" class="form-control datepicker" placeholder="Enter Start date" name="start_date" id="start_date" autocomplete="off" value="<?php echo $ZOOM_CLASS->start_date ?>">
 										</div>
 
 
 										<div class="form-group">
 											<label>Start Time:</label>
-											<input type="text" class="form-control timepicker" placeholder="Enter Start time" name="start_time" id="start_time" value="<?php echo $LESSONS->start_time ?>">
+											<input type="text" class="form-control timepicker" placeholder="Enter Start time" name="start_time" id="start_time" autocomplete="off" value="<?php echo $ZOOM_CLASS->start_time ?>">
 										</div>
 
 										<div class="form-group">
 											<label>Meeting Id:</label>
-											<input type="text" class="form-control" placeholder="Enter Meeting Id" name="meeting_id" id="meeting_id" value="<?php echo $LESSONS->meeting_id ?>">
+											<input type="text" class="form-control" placeholder="Enter Meeting Id" name="meeting_id" id="meeting_id" autocomplete="off" value="<?php echo $ZOOM_CLASS->meeting_id ?>">
 										</div>
 
 
 										<div class="form-group">
 											<label>Password:</label>
-											<input type="text" class="form-control" placeholder="Enter Password" name="password" id="password" value="<?php echo $LESSONS->password ?>">
+											<input type="text" class="form-control" placeholder="Enter Password" name="password" id="password" autocomplete="off" value="<?php echo $ZOOM_CLASS->password ?>">
 										</div>
-
-										<div class="form-group">
-											<label>Description:</label>
-											<textarea id="description" name="description" class="form-control"><?php echo $LESSONS->description ?></textarea>
-
-										</div>
+ 
 
 									</div>
 									<!-- /.box-body -->
 									<div class="box-footer">
 										<button type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="update">Update</button>
 									</div>
-									<input type="hidden" name="class_id" value="<?php echo $id ?>">
+									<input type="hidden" name="id" value="<?php echo $id ?>">
 									<input type="hidden" name="update">
 								</form>
 							</div>
@@ -121,7 +116,7 @@ $LESSONS = new Lessons($id);
 	<script src="js/pages/data-table.js"></script>
 
 
-	<script src="ajax/js/add-class-lessons.js"></script>
+	<script src="ajax/js/zoom-class.js"></script>
 	<script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

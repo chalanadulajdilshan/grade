@@ -135,7 +135,7 @@ $(document).ready(function() {
 
             var formData = new FormData($('#form-data')[0]);
             $.ajax({
-                url: "ajax/php/add-class-lessons.php",
+                url: "ajax/php/zoom_class.php",
                 type: "POST",
                 data: formData,
                 async: false,

@@ -151,7 +151,6 @@ class ZoomClass
             . "`title` ='" . $this->title . "', "
             . "`start_date` ='" . $this->start_date . "', "
             . "`start_time` ='" . $this->start_time . "', "
-            . "`duration` ='" . $this->duration . "', "
             . "`meeting_id` ='" . $this->meeting_id . "', "
             . "`password` ='" . $this->password . "', "
             . "`queue` ='" . $this->queue . "' "
@@ -160,7 +159,7 @@ class ZoomClass
 
         $db = new Database();
 
-
+        
 
         $result = $db->readQuery($query);
 
