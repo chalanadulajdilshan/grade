@@ -38,13 +38,13 @@
 							<div class="p-40">
 								<form id="form">
 									<div class="form-group">
-									<lable>Student ID </lable>
+										<lable>Student ID / Mobile Number </lable>
 										<div class="input-group mb-3">
-										
+
 											<div class="input-group-prepend">
 												<span class="input-group-text bg-transparent"><i class="ti-user"></i></span>
 											</div>
-											
+
 											<input type="text" class="form-control pl-15 bg-transparent" placeholder="Student ID" name="student_id" data-field="student_id">
 											<div class="col-md-12">
 												<div class="valid-message"></div>
@@ -52,7 +52,7 @@
 										</div>
 									</div>
 									<div class="form-group">
-									<lable>Password </lable>
+										<lable>Password </lable>
 										<div class="input-group mb-3">
 											<div class="input-group-prepend">
 												<span class="input-group-text  bg-transparent"><i class="ti-lock"></i></span>
@@ -70,16 +70,18 @@
 												<label for="basic_checkbox_1">Remember Me</label>
 											</div>
 										</div>
-										
+
 										<!-- /.col -->
 										<div class="col-6">
 											<div class="fog-pwd text-right">
 												<a href="forget-password.php" class="hover-warning"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
 											</div>
 										</div>
-										<div class="form-group">
+
+										<div class="form-group ">
 											<div class="text-center text-danger btn-padding font-size-new" id="message"></div>
 										</div>
+
 										<!-- /.col -->
 										<div class="col-12 text-center">
 											<button type="submit" class="btn btn-danger mt-10">SIGN IN</button>

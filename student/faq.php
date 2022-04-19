@@ -35,24 +35,7 @@ include './auth.php';
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<div class="container-full">
-				<!-- Content Header (Page header) -->
-				<div class="content-header">
-					<div class="d-flex align-items-center">
-						<div class="mr-auto">
-							<h3 class="page-title">FAQ</h3>
-							<div class="d-inline-block align-items-center">
-								<nav>
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-										<li class="breadcrumb-item" aria-current="page">Sample Page</li>
-										<li class="breadcrumb-item active" aria-current="page">FAQ</li>
-									</ol>
-								</nav>
-							</div>
-						</div>
 
-					</div>
-				</div>
 
 				<!-- Main content -->
 				<section class="content">
@@ -66,8 +49,7 @@ include './auth.php';
 									<ul class="nav nav-pills rounded nav-justified">
 										<li class="nav-item"> <a href="#navpills-1" class="nav-link active" data-toggle="tab" aria-expanded="false">General</a> </li>
 										<li class="nav-item"> <a href="#navpills-2" class="nav-link" data-toggle="tab" aria-expanded="false">Payment</a> </li>
-										<li class="nav-item"> <a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">Offers</a> </li>
-										<li class="nav-item"> <a href="#navpills-4" class="nav-link" data-toggle="tab" aria-expanded="true">Security and Privacy</a> </li>
+										<li class="nav-item"> <a href="#navpills-3" class="nav-link" data-toggle="tab" aria-expanded="true">Add class</a> </li>
 									</ul>
 								</div>
 								<!-- /.box-body -->
@@ -83,60 +65,9 @@ include './auth.php';
 												<div class="panel-group panel-group-simple panel-group-continuous" id="accordion2" aria-multiselectable="true" role="tablist">
 													<!-- Question 1 -->
 													<div class="panel">
-														<div class="panel-heading" id="question-1" role="tab">
-															<a class="panel-title" aria-controls="answer-1" aria-expanded="true" data-toggle="collapse" href="#answer-1" data-parent="#accordion2">
-																Lorem ipsum dolor sit amet, consectetur adipiscing elit?
-															</a>
-														</div>
-														<div class="panel-collapse collapse show" id="answer-1" aria-labelledby="question-1" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
-														</div>
+														<iframe width=100% height="615" src="https://www.youtube.com/embed/FWfx_VAtZ2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 													</div>
-													<!-- End Question 1 -->
-													<!-- Question 2 -->
-													<div class="panel">
-														<div class="panel-heading" id="question-2" role="tab">
-															<a class="panel-title" aria-controls="answer-2" aria-expanded="false" data-toggle="collapse" href="#answer-2" data-parent="#accordion2">
-																Nulla nec libero sit amet ligula tincidunt imperdiet vitae sit amet lectus?
-															</a>
-														</div>
-														<div class="panel-collapse collapse" id="answer-2" aria-labelledby="question-2" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
-														</div>
-													</div>
-													<!-- End Question 2 -->
-													<!-- Question 3 -->
-													<div class="panel">
-														<div class="panel-heading" id="question-3" role="tab">
-															<a class="panel-title" aria-controls="answer-3" aria-expanded="false" data-toggle="collapse" href="#answer-3" data-parent="#accordion2">
-																Morbi quis dui at justo posuere aliquam?
-															</a>
-														</div>
-														<div class="panel-collapse collapse" id="answer-3" aria-labelledby="question-3" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
-														</div>
-													</div>
-													<!-- End Question 3 -->
-													<!-- Question 4 -->
-													<div class="panel">
-														<div class="panel-heading" id="question-4" role="tab">
-															<a class="panel-title" aria-controls="answer-4" aria-expanded="false" data-toggle="collapse" href="#answer-4" data-parent="#accordion2">
-																Vivamus dictum turpis at nisi mattis congue?
-															</a>
-														</div>
-														<div class="panel-collapse collapse" id="answer-4" aria-labelledby="question-4" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
-														</div>
-													</div>
-													<!-- End Question 4 -->
+
 												</div>
 											</div>
 											<!-- End Categroy 1 -->
@@ -147,46 +78,20 @@ include './auth.php';
 												<div class="panel-group panel-group-simple panel-group-continuous" id="accordion" aria-multiselectable="true" role="tablist">
 													<!-- Question 5 -->
 													<div class="panel">
-														<div class="panel-heading" id="question-5" role="tab">
-															<a class="panel-title" aria-controls="answer-5" aria-expanded="true" data-toggle="collapse" href="#answer-5" data-parent="#accordion">
-																Nunc porttitor lectus non aliquam semper?
-															</a>
-														</div>
-														<div class="panel-collapse collapse show" id="answer-5" aria-labelledby="question-5" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
+														<div class="panel">
+															<iframe width=100% height="615" src="https://www.youtube.com/embed/FWfx_VAtZ2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 														</div>
 													</div>
 													<!-- End Question 5 -->
 													<!-- Question 6 -->
 													<div class="panel">
-														<div class="panel-heading" id="question-6" role="tab">
-															<a class="panel-title" aria-controls="answer-6" aria-expanded="false" data-toggle="collapse" href="#answer-6" data-parent="#accordion">
-																Aliquam a lacus et mi convallis pellentesque?
-															</a>
-														</div>
-														<div class="panel-collapse collapse" id="answer-6" aria-labelledby="question-6" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
+														<div class="panel">
+															<iframe width=100% height="615" src="https://www.youtube.com/embed/FWfx_VAtZ2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 														</div>
 													</div>
 													<!-- End Question 6 -->
 													<!-- Question 7 -->
-													<div class="panel">
-														<div class="panel-heading" id="question-7" role="tab">
-															<a class="panel-title" aria-controls="answer-7" aria-expanded="false" data-toggle="collapse" href="#answer-7" data-parent="#accordion">
-																Praesent at felis feugiat, malesuada nibh vitae, accumsan erat?
-															</a>
-														</div>
-														<div class="panel-collapse collapse" id="answer-7" aria-labelledby="question-7" role="tabpanel">
-															<div class="panel-body">
-																I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-															</div>
-														</div>
-													</div>
-													<!-- End Question 7 -->
+
 												</div>
 											</div>
 											<!-- End Categroy 2 -->
@@ -303,10 +208,10 @@ include './auth.php';
 				</section>
 				<!-- /.content -->
 			</div>
-		</div> 
+		</div>
 	</div>
 	<!-- ./wrapper -->
- 
+
 	<script src="js/vendors.min.js"></script>
 	<script src="js/pages/chat-popup.js"></script>
 	<script src="assets/icons/feather-icons/feather.min.js"></script>
