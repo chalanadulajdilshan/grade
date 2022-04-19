@@ -24,7 +24,8 @@ class Payment
 
     public $id;
     public $student_id;
-    public $date_and_time;
+    public $date;
+    public $time;
     public $slip_image;
     public $status;
     public $queue;
@@ -42,7 +43,8 @@ class Payment
 
             $this->id = $result['id'];
             $this->student_id = $result['student_id'];
-            $this->date_and_time = $result['date_and_time'];
+            $this->date = $result['date'];
+            $this->time = $result['time'];
             $this->slip_image = $result['slip_image'];
             $this->status = $result['status'];
             $this->queue = $result['queue'];
@@ -55,9 +57,10 @@ class Payment
     {
 
 
-        $query = "INSERT INTO `payment` (`student_id`,`date_and_time`,`slip_image`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `payment` (`student_id`,`date`,`time`,`slip_image`,`queue`) VALUES  ('"
             . $this->student_id . "','"
-            . $this->date_and_time . "', '"
+            . $this->date . "', '"
+            . $this->time . "', '"
             . $this->slip_image . "', '"
             . $this->queue . "')";
 
@@ -97,6 +100,23 @@ class Payment
 
 
         return $array_res;
+    }
+
+
+    public function checkPayment($student_id, $date)
+    {
+
+        $query = "SELECT `id` FROM `payment` WHERE  `status` = 1 AND `student_id`= $student_id AND `date` >= $date";
+        
+
+        $db = new Database();
+        $result = mysqli_fetch_assoc($db->readQuery($query));
+
+        if ($result['id']) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
     public function getPaymentByStudentId($student_id)
@@ -194,19 +214,11 @@ class Payment
     public function update()
     {
 
-
-
         $query = "UPDATE  `payment` SET `status` ='" . $this->status . "' WHERE `id` = '" . $this->id . "'";
-
-
 
         $db = new Database();
 
-
-
         $result = $db->readQuery($query);
-
-
 
         if ($result) {
 
@@ -247,20 +259,5 @@ class Payment
         $result = mysqli_fetch_assoc($db->readQuery($query));
 
         return $result['payment_status_code'];
-    }
-
-    public function checkPayment($student_id, $lesson_id)
-    {
-
-        $query = "SELECT `id` FROM `payment` WHERE  `payment_status_code` = 1 AND `student_id`=$student_id AND `lesson_id`=$lesson_id";
-
-        $db = new Database();
-        $result = mysqli_fetch_assoc($db->readQuery($query));
-
-        if ($result['id']) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
     }
 }

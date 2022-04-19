@@ -75,7 +75,7 @@ $STUDENT = new Student($_SESSION['id'])
 									<div class="box-footer">
 										<input type="submit" class="btn btn-rounded btn-success pull-right" style="float: right;margin-bottom: 10px;" id="addPayment" value="Create" />
 									</div>
-									<input type="hidden" name="student_id" value="1">
+									<input type="hidden" name="student_id" value="<?php echo $_SESSION['id'] ?>">
 								</form>
 							</div>
 						</div>
@@ -98,22 +98,26 @@ $STUDENT = new Student($_SESSION['id'])
 													<tr>
 														<th>Id</th>
 														<th>Month Name</th>
-														<th>Payment date and time</th>
+														<th>Payment Date </th>
+														<th>Payment Time </th>
 														<th>Approved</th>
 														<th>Slip</th>
 													</tr>
 												</thead>
 												<tbody>
+
 													<?php
 													$PAYMENT = new Payment(NULL);
 													foreach ($PAYMENT->all() as $key => $payments) {
 														$key++;
-														$month = date("M",strtotime($payments['date_and_time']));
+														$month = date("M", strtotime($payments['date']));
 													?>
+
 														<tr>
 															<td>0<?php echo $key ?></td>
 															<td><?php echo $month ?></td>
-															<td><?php echo $payments['date_and_time'] ?></td>
+															<td><?php echo $payments['date'] ?></td>
+															<td><?php echo $payments['time'] ?></td>
 															<?php
 															if ($payments['status'] == 0) {
 															?>
@@ -124,15 +128,16 @@ $STUDENT = new Student($_SESSION['id'])
 															<?php } ?>
 
 															<td><a href="../upload/payments/<?php echo $payments['slip_image'] ?>" target="_blank">View Slip</a></td>
-
 														</tr>
+
 													<?php } ?>
 												</tbody>
 												<tfoot>
 													<tr>
 														<th>Id</th>
 														<th>Month Name</th>
-														<th>Slip Uploard Date & Time</th>
+														<th>Payment Date </th>
+														<th>Payment Time </th>
 														<th>Approved</th>
 														<th>Slip</th>
 													</tr>

@@ -18,7 +18,7 @@ $STUDENT = new Student($_SESSION['id']);
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="assets/vendors_css.css">
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
     <!-- Style-->
     <link rel="stylesheet" href="assets/style.css">
@@ -34,12 +34,11 @@ $STUDENT = new Student($_SESSION['id']);
         <?php include 'header.php' ?>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="padding: 0px;">
             <div class="container-full">
-
                 <section class="content">
                     <div class="row fx-element-overlay">
-                    <div class="col-lg-8 col-12">
+                        <div class="col-lg-8 col-12">
                             <div class="box pull-up">
                                 <div class="box-body bg-img" style="background-image: url(images/bg-5.png);" data-overlay-light="9">
                                     <div class="d-lg-flex align-items-center justify-content-between">
@@ -62,7 +61,7 @@ $STUDENT = new Student($_SESSION['id']);
                                 <div class="box-body">
                                     <div class="d-flex align-items-center">
                                         <div class="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center">
-                                        <i class='bx bx-phone-call' style="font-size: 35px;"></i>
+                                            <i class='bx bx-phone-call' style="font-size: 35px;"></i>
                                         </div>
                                         <div class="ml-10">
                                             <h4 class="text-white mb-0">+1 1234 456 789</h4>
@@ -79,16 +78,16 @@ $STUDENT = new Student($_SESSION['id']);
                         ?>
                             <div class="col-lg-3 col-md-6 col-12">
                                 <a href="class-view.php?id=<?php echo $subjects['id'] ?>">
-
                                     <div class="box">
                                         <div class="fx-card-item">
                                             <div class="fx-card-avatar fx-overlay-1"> <img src="../upload/Subjects/<?php echo $subjects['image_name'] ?>" alt="user" class="bbrr-0 bblr-0">
                                                 <div class="fx-overlay">
                                                     <ul class="fx-info">
-                                                        <li><span class="btn btn-danger no-border" href="javascript:void(0);">
+                                                        <li>
+                                                            <span class="btn btn-danger no-border" href="javascript:void(0);">
                                                                 Enroll Class
-
-                                                            </span></li>
+                                                            </span>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -100,14 +99,10 @@ $STUDENT = new Student($_SESSION['id']);
                                 </a>
                             </div>
                         <?php } ?>
-
                     </div>
-
                 </section>
-                <!-- /.content -->
             </div>
         </div>
-        <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar">
@@ -372,9 +367,6 @@ $STUDENT = new Student($_SESSION['id']);
                 <!-- /.tab-pane -->
             </div>
         </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
 
     </div>

@@ -122,7 +122,7 @@ class Student
     public function login($student_id, $password)
     {
         $enPass = md5($password);
-        $query = "SELECT `id` FROM `student` WHERE `student_id`= '" . $student_id . "' AND `password`= '" . $enPass . "'";
+        $query = "SELECT `id` FROM `student` WHERE `student_id`= '" . $student_id . "' OR `phone_number`= '" . $student_id . "' AND `password`= '" . $enPass . "'";
         $db = new Database();
         $result = mysqli_fetch_array($db->readQuery($query));
         if (!$result) {
